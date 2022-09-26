@@ -7,18 +7,18 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/post_image"
+        android:id="@+id/imageV"
         android:layout_width="415dp"
         android:layout_height="374dp"
         android:background="@drawable/anime_crossover_wallpaper_preview"
         android:src="@drawable/fade_image"
-        app:layout_constraintBottom_toTopOf="@+id/post_image1"
+        app:layout_constraintBottom_toTopOf="@+id/imageV1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/post_image1"
+        android:id="@+id/imageV1"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/pure_black_background_f82588d3"
@@ -39,7 +39,7 @@
         android:textColor="#FF5722"
         android:textSize="28sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/post_image1"
+        app:layout_constraintBottom_toTopOf="@+id/imageV1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
