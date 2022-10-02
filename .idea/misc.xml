@@ -3,8 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Bryan/AndroidStudioProjects/FrontendAndroid_Projet3_DoKhoa/app/src/main/res/drawable/background_fade.xml" value="0.1" />
         <entry key="..\:/Users/Bryan/AndroidStudioProjects/FrontendAndroid_Projet3_DoKhoa/app/src/main/res/drawable/button_border.xml" value="0.1785" />
         <entry key="..\:/Users/Bryan/AndroidStudioProjects/FrontendAndroid_Projet3_DoKhoa/app/src/main/res/drawable/fade_image.xml" value="0.1785" />
+        <entry key="..\:/Users/Bryan/AndroidStudioProjects/FrontendAndroid_Projet3_DoKhoa/app/src/main/res/drawable/fade_image_top.xml" value="0.1" />
+        <entry key="..\:/Users/Bryan/AndroidStudioProjects/FrontendAndroid_Projet3_DoKhoa/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="..\:/Users/Bryan/AndroidStudioProjects/FrontendAndroid_Projet3_DoKhoa/app/src/main/res/layout/activity_forgotpassword.xml" value="0.22" />
         <entry key="..\:/Users/Bryan/AndroidStudioProjects/FrontendAndroid_Projet3_DoKhoa/app/src/main/res/layout/activity_main.xml" value="0.22" />
       </map>
