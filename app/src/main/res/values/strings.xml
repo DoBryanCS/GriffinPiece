@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">GriffinPiece</string>
+    <string name="email">Email</string>
+    <string name="cr_er_un_compte">Créer un compte</string>
+    <string name="username">Username</string>
+    <string name="vous_avez_dej_un_compte">Vous avez dejà un compte?</string>
+    <string name="cliquez_ici">Cliquez-ici!</string>
+    <string name="password">password</string>
+    <string name="vous_n_avez_pas_de_compte">Vous n\'avez pas de compte?</string>
+    <string name="se_connecter">Se connecter</string>
+</resources>
