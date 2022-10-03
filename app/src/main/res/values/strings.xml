@@ -8,4 +8,9 @@
     <string name="password">password</string>
     <string name="vous_n_avez_pas_de_compte">Vous n\'avez pas de compte?</string>
     <string name="se_connecter">Se connecter</string>
+    <string name="mon_compte">Mon compte</string>
+    <string name="account">Mon Compte</string>
+    <string name="se_d_connecter">Se déconnecter</string>
+    <string name="textview">TextView</string>
+    <string name="username_du_compte">Username du compte</string>
 </resources>
