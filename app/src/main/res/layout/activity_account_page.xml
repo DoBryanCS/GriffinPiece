@@ -29,15 +29,13 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/txtViewUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20sp"
             android:text="@string/username_du_compte"
             android:textColor="@color/white"
-            android:textSize="20sp"
-            android:drawableRight="@drawable/ic_launcher_foreground"
-            android:drawableRightSize="20sp"/>
+            android:textSize="20sp"/>
 
         <TextView
             android:id="@+id/txtViewEmail"

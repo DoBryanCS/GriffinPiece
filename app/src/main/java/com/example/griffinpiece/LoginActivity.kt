@@ -28,6 +28,10 @@ class LoginActivity : AppCompatActivity() {
 
         btnLogin.setOnClickListener{
             Toast.makeText(this,"Votre utilisateur a été crée! ${loginEmail.getText()} ", Toast.LENGTH_SHORT).show()
+            val intentLogin = Intent(this ,AccountPage::class.java)
+            intentLogin.putExtra("Email",  loginEmail.getText())
+            intentLogin.putExtra("Username", loginUsername.getText())
+            this.startActivity(intentLogin)
         }
 
         clickHere.setOnClickListener{
