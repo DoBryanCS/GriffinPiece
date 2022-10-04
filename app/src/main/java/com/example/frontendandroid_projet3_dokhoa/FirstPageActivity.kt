@@ -8,13 +8,13 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.ActionBar
 
-class MainActivity : AppCompatActivity() {
+class FirstPageActivity : AppCompatActivity() {
 
     private lateinit var actionBar: ActionBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_firstpage)
 
         actionBar = supportActionBar!!
         actionBar.title = "Bienvenue sur Griffin Piece"
