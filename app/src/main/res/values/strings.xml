@@ -13,4 +13,7 @@
     <string name="se_d_connecter">Se déconnecter</string>
     <string name="textview">TextView</string>
     <string name="username_du_compte">Username du compte</string>
+    <string name="modifier_votre_compte">Modifier votre compte</string>
+    <string name="changer_votre_courriel">Changer votre courriel</string>
+    <string name="changer_votre_mot_de_passe">Changer votre mot de passe</string>
 </resources>

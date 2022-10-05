@@ -42,15 +42,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20sp"
-            android:text="Email"
+            android:text="@string/changer_votre_courriel"
+            android:drawableEnd="@drawable/arrow_right"
             android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textSize="20dp" />
 
         <TextView
             android:id="@+id/txtViewPassword"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="*********"
+            android:layout_height="60dp"
+            android:drawableEnd="@drawable/arrow_right"
+            android:text="@string/changer_votre_mot_de_passe"
             android:textColor="@color/white"
             android:textSize="20sp" />
 
