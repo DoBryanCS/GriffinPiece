@@ -15,6 +15,8 @@ class MainActivity : AppCompatActivity() {
         val thirdFragment= ThirdFragment()
         val fourthFragment= FourthFragment()
 
+
+
         setCurrentFragment(firstFragment)
 
         findViewById<BottomNavigationView>(R.id.bottomNavigationView).setOnNavigationItemSelectedListener {

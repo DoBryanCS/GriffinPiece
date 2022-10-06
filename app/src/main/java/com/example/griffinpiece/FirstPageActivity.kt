@@ -22,12 +22,12 @@ class FirstPageActivity : AppCompatActivity() {
 
         var login = findViewById<Button>(R.id.btnLogin)
         login.setOnClickListener {
-            startActivity(Intent(this, ForgotpasswordActivity::class.java))
+            startActivity(Intent(this,  LoginActivity::class.java))
         }
 
         var signup = findViewById<Button>(R.id.btnSignUp)
         signup.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, CreateAccount::class.java))
         }
     }
 }
