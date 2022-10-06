@@ -24,5 +24,10 @@ class FirstPageActivity : AppCompatActivity() {
         login.setOnClickListener {
             startActivity(Intent(this, ForgotpasswordActivity::class.java))
         }
+
+        var signup = findViewById<Button>(R.id.btnSignUp)
+        signup.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+        }
     }
 }
