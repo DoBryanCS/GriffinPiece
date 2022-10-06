@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+
         <entry key="..\:/Users/Mathieu/AndroidStudioProjects/GriffinPiece/app/src/main/res/layout/activity_login.xml" value="0.31023550724637683" />
         <entry key="..\:/Users/Mathieu/AndroidStudioProjects/GriffinPiece/app/src/main/res/layout/activity_main.xml" value="0.35260416666666666" />
         <entry key="..\:/Users/Mathieu/Documents/School/Projet/frontend_android/app/src/main/res/layout/activity_account_page.xml" value="0.5" />
@@ -12,6 +13,30 @@
         <entry key="app/src/main/res/layout/activity_account_page.xml" value="0.35733695652173914" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.5" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.14444444444444443" />
+        <entry key="..\:/Users/Bryan/AndroidStudioProjects/FrontendAndroid_Projet3_DoKhoa/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1075" />
+        <entry key="..\:/Users/Bryan/AndroidStudioProjects/FrontendAndroid_Projet3_DoKhoa/app/src/main/res/drawable/background_fade.xml" value="0.1" />
+        <entry key="..\:/Users/Bryan/AndroidStudioProjects/FrontendAndroid_Projet3_DoKhoa/app/src/main/res/drawable/bottom_navigation_selector.xml" value="0.1" />
+        <entry key="..\:/Users/Bryan/AndroidStudioProjects/FrontendAndroid_Projet3_DoKhoa/app/src/main/res/drawable/button_border.xml" value="0.1785" />
+        <entry key="..\:/Users/Bryan/AndroidStudioProjects/FrontendAndroid_Projet3_DoKhoa/app/src/main/res/drawable/fade_image.xml" value="0.1785" />
+        <entry key="..\:/Users/Bryan/AndroidStudioProjects/FrontendAndroid_Projet3_DoKhoa/app/src/main/res/drawable/fade_image_top.xml" value="0.1" />
+        <entry key="..\:/Users/Bryan/AndroidStudioProjects/FrontendAndroid_Projet3_DoKhoa/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.1625" />
+        <entry key="..\:/Users/Bryan/AndroidStudioProjects/FrontendAndroid_Projet3_DoKhoa/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.1625" />
+        <entry key="..\:/Users/Bryan/AndroidStudioProjects/FrontendAndroid_Projet3_DoKhoa/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/Users/Bryan/AndroidStudioProjects/FrontendAndroid_Projet3_DoKhoa/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.1625" />
+        <entry key="..\:/Users/Bryan/AndroidStudioProjects/FrontendAndroid_Projet3_DoKhoa/app/src/main/res/drawable/icon.xml" value="0.1" />
+        <entry key="..\:/Users/Bryan/AndroidStudioProjects/FrontendAndroid_Projet3_DoKhoa/app/src/main/res/layout/activity_changeemail.xml" value="0.22" />
+        <entry key="..\:/Users/Bryan/AndroidStudioProjects/FrontendAndroid_Projet3_DoKhoa/app/src/main/res/layout/activity_changepassword.xml" value="0.2" />
+        <entry key="..\:/Users/Bryan/AndroidStudioProjects/FrontendAndroid_Projet3_DoKhoa/app/src/main/res/layout/activity_firstpage.xml" value="0.2" />
+        <entry key="..\:/Users/Bryan/AndroidStudioProjects/FrontendAndroid_Projet3_DoKhoa/app/src/main/res/layout/activity_forgotpassword.xml" value="0.22" />
+        <entry key="..\:/Users/Bryan/AndroidStudioProjects/FrontendAndroid_Projet3_DoKhoa/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/Bryan/AndroidStudioProjects/FrontendAndroid_Projet3_DoKhoa/app/src/main/res/layout/fragment_dashboard.xml" value="0.2" />
+        <entry key="..\:/Users/Bryan/AndroidStudioProjects/FrontendAndroid_Projet3_DoKhoa/app/src/main/res/layout/fragment_first.xml" value="0.1" />
+        <entry key="..\:/Users/Bryan/AndroidStudioProjects/FrontendAndroid_Projet3_DoKhoa/app/src/main/res/layout/fragment_fourth.xml" value="0.1" />
+        <entry key="..\:/Users/Bryan/AndroidStudioProjects/FrontendAndroid_Projet3_DoKhoa/app/src/main/res/layout/fragment_home.xml" value="0.2" />
+        <entry key="..\:/Users/Bryan/AndroidStudioProjects/FrontendAndroid_Projet3_DoKhoa/app/src/main/res/layout/fragment_notifications.xml" value="0.2" />
+        <entry key="..\:/Users/Bryan/AndroidStudioProjects/FrontendAndroid_Projet3_DoKhoa/app/src/main/res/layout/fragment_second.xml" value="0.1" />
+        <entry key="..\:/Users/Bryan/AndroidStudioProjects/FrontendAndroid_Projet3_DoKhoa/app/src/main/res/layout/fragment_third.xml" value="0.1" />
+        <entry key="..\:/Users/Bryan/AndroidStudioProjects/FrontendAndroid_Projet3_DoKhoa/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
       </map>
     </option>
   </component>

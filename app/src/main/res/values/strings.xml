@@ -1,4 +1,5 @@
 <resources>
+
     <string name="app_name">GriffinPiece</string>
     <string name="email">Email</string>
     <string name="cr_er_un_compte">Créer un compte</string>
@@ -16,4 +17,6 @@
     <string name="modifier_votre_compte">Modifier votre compte</string>
     <string name="changer_votre_courriel">Changer votre courriel</string>
     <string name="changer_votre_mot_de_passe">Changer votre mot de passe</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
