@@ -42,6 +42,7 @@
             android:textColorHint="@color/white"
             android:inputType="textPersonName"
             android:minHeight="48dp"
+            android:textColor="#FFFFFF"
             android:importantForAutofill="no" />
 
         <EditText
@@ -54,6 +55,7 @@
             android:inputType="textPassword"
             android:minHeight="48dp"
             android:textColorHint="@color/white"
+            android:textColor="#FFFFFF"
             android:importantForAutofill="no" />
 
         <Button

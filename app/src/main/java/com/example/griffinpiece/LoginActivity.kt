@@ -33,14 +33,13 @@ class LoginActivity : AppCompatActivity() {
         var clickHere: TextView = findViewById(R.id.clickHereSignUp)
 
         var btnLogin: Button = findViewById(R.id.btnSignUp)
-        val intentUserLogin = Intent(this, AccountPage::class.java)
+        val intentUserLogin = Intent(this, MainActivity::class.java)
         var intentCreateAccount = Intent(this, CreateAccount::class.java)
 
         loginEmail.setText(sentEmail)
         loginUsername.setText(sentUsername)
 
         btnLogin.setOnClickListener{
-            Toast.makeText(this,"Votre utilisateur est connecté! ${loginEmail.getText()} ", Toast.LENGTH_SHORT).show()
 
             val queue = Volley.newRequestQueue(this)
 
@@ -59,6 +58,7 @@ class LoginActivity : AppCompatActivity() {
                     Log.i("username", jsonobject.getString("username"))
                     intentUserLogin.putExtra("email", jsonobject.getString("email"))
                     intentUserLogin.putExtra("username",jsonobject.getString("username"))
+                    Toast.makeText(this,"Votre utilisateur est connecté! ${loginEmail.getText()} ", Toast.LENGTH_SHORT).show()
                     this.startActivity(intentUserLogin)
 
                 }, Response.ErrorListener {
