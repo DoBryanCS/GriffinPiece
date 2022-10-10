@@ -19,6 +19,8 @@ class MainActivity : AppCompatActivity() {
         actionBar = supportActionBar!!
         actionBar.title = "Griffin Piece"
         actionBar.setBackgroundDrawable(ColorDrawable(Color.parseColor("#040404")))
+        actionBar.setHomeAsUpIndicator(R.drawable.icon);// set drawable icon
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         val firstFragment= FirstFragment()
         val secondFragment= SecondFragment()
