@@ -1,6 +1,8 @@
 package com.example.griffinpiece
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -23,6 +25,10 @@ class LoginActivity : AppCompatActivity() {
 
         actionBar = supportActionBar!!
         actionBar.title = "Connecter-vous à votre compte"
+        actionBar.setBackgroundDrawable(ColorDrawable(Color.parseColor("#040404")))
+
+        actionBar.setDisplayHomeAsUpEnabled(true)
+        actionBar.setDisplayShowHomeEnabled(true)
 
         var sentEmail = this.intent.getStringExtra("email")
         var sentUsername = this.intent.getStringExtra("username")
@@ -72,5 +78,10 @@ class LoginActivity : AppCompatActivity() {
             this.startActivity(intentCreateAccount)
         }
 
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
     }
 }
