@@ -7,7 +7,7 @@ import android.widget.TextView
 class AccountPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_account_page)
+        setContentView(R.layout.fragment_fourth)
 
         val txtViewEmail: TextView = findViewById(R.id.txtViewEmail)
         val txtViewUsername: TextView = findViewById(R.id.txtViewUsername)
