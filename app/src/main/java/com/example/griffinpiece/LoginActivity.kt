@@ -49,7 +49,7 @@ class LoginActivity : AppCompatActivity() {
 
             val queue = Volley.newRequestQueue(this)
 
-            val url = "http://172.105.104.199:3000/auth/login"
+            val url = "http://172.105.104.199/auth/login"
 
             val jsonobject = JSONObject()
 

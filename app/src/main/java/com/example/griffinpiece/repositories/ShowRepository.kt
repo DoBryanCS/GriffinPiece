@@ -14,7 +14,7 @@ class ShowRepository(private val application: Application) {
         val queue = Volley.newRequestQueue(application)
         val r = StringRequest(
             Request.Method.GET,
-            "http://172.105.104.199:3000/show",
+            "http://172.105.104.199/show",
             {
                 val arrayShows = Gson().fromJson(it, Array<Show>::class.java)
                 shows.value = arrayShows.toMutableList()
