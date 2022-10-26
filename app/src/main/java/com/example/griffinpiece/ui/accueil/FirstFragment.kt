@@ -1,4 +1,4 @@
-package com.example.griffinpiece
+package com.example.griffinpiece.ui.accueil
 
 import android.content.Context
 import android.os.Bundle
@@ -9,8 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.griffinpiece.R
 import com.example.griffinpiece.adapters.ShowsRecyclerViewAdapter
-import com.example.griffinpiece.viewmodels.show.ShowViewModel
 
 class FirstFragment:Fragment() {
     private lateinit var rvListeShow: RecyclerView

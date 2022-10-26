@@ -1,23 +1,18 @@
-package com.example.griffinpiece
+package com.example.griffinpiece.ui.login
 
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import androidx.lifecycle.ViewModelProvider
-import com.android.volley.Request
-import com.android.volley.Response
-import com.android.volley.toolbox.JsonObjectRequest
-import com.android.volley.toolbox.Volley
-import com.example.griffinpiece.viewmodels.user.LoginViewModel
-import org.json.JSONObject
+import com.example.griffinpiece.ui.register.CreateAccount
+import com.example.griffinpiece.MainActivity
+import com.example.griffinpiece.R
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var actionBar: ActionBar

@@ -1,4 +1,4 @@
-package com.example.griffinpiece.viewmodels.user
+package com.example.griffinpiece.ui.login
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel

@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.ActionBar
+import com.example.griffinpiece.ui.login.LoginActivity
+import com.example.griffinpiece.ui.register.CreateAccount
 
 class FirstPageActivity : AppCompatActivity() {
 

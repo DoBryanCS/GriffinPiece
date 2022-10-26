@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/black"
 
-    tools:context=".CreateAccount">
+    tools:context=".ui.register.CreateAccount">
 
     <TextView
         android:layout_width="wrap_content"

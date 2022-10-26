@@ -8,7 +8,7 @@ import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.example.griffinpiece.MainActivity.Companion.SRVURL
-import com.example.griffinpiece.viewmodels.user.LoginViewModel
+import com.example.griffinpiece.ui.login.LoginViewModel
 import org.json.JSONObject
 
 class SignUpRepository(val app: Application) {

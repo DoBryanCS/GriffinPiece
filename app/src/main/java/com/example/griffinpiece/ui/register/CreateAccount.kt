@@ -1,4 +1,4 @@
-package com.example.griffinpiece
+package com.example.griffinpiece.ui.register
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -15,6 +15,8 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.example.griffinpiece.R
+import com.example.griffinpiece.ui.login.LoginActivity
 import org.json.JSONObject
 
 class CreateAccount : AppCompatActivity() {
