@@ -52,24 +52,6 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/usernameTil"
-        android:layout_above="@id/passwordTil"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_centerInParent="true"
-        android:textColorHint="@color/white"
-        app:boxBackgroundColor="#323131">
-
-        <EditText
-            android:id="@+id/loginUsername"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Username"
-            android:inputType="textPersonName" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/passwordTil"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
