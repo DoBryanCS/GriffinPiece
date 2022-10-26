@@ -6,6 +6,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.ActionBar
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -22,32 +27,27 @@ class MainActivity : AppCompatActivity() {
         actionBar.setHomeAsUpIndicator(R.drawable.icon);// set drawable icon
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        val firstFragment= FirstFragment()
-        val secondFragment= SecondFragment()
-        val thirdFragment= ThirdFragment()
-        val fourthFragment= FourthFragment()
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment
+        val navController = navHostFragment.navController
 
+        val appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.navigation_home, R.id.navigation_favorites, R.id.navigation_history, R.id.navigation_account
+            )
+        )
+        this.setupActionBarWithNavController(navController, appBarConfiguration)
 
-
-        setCurrentFragment(firstFragment)
-
-        findViewById<BottomNavigationView>(R.id.bottomNavigationView).setOnNavigationItemSelectedListener {
-            when(it.itemId){
-                R.id.home->setCurrentFragment(firstFragment)
-                R.id.favorite->setCurrentFragment(secondFragment)
-                R.id.history->setCurrentFragment(thirdFragment)
-                R.id.account->setCurrentFragment(fourthFragment)
-
-            }
-            true
-        }
+        val navView: BottomNavigationView = this.findViewById(R.id.bottomNavigationView)
+        navView.setupWithNavController(navController)
 
     }
 
-    private fun setCurrentFragment(fragment:Fragment)=
-        supportFragmentManager.beginTransaction().apply {
-            replace(R.id.flFragment,fragment)
-            commit()
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = this.findNavController(R.id.nav_host_fragment_activity_main)
+        if (navController.navigateUp()) {
+            return true
         }
-
+        return super.onSupportNavigateUp()
+    }
 }

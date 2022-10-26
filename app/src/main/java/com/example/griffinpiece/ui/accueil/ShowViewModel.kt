@@ -1,4 +1,4 @@
-package com.example.griffinpiece.viewmodels.show
+package com.example.griffinpiece.ui.accueil
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel

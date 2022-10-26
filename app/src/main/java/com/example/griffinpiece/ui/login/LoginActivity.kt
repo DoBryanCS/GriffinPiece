@@ -1,4 +1,4 @@
-package com.example.griffinpiece
+package com.example.griffinpiece.ui.login
 
 import android.content.Intent
 import android.graphics.Color
@@ -15,6 +15,9 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.example.griffinpiece.ui.register.CreateAccount
+import com.example.griffinpiece.MainActivity
+import com.example.griffinpiece.R
 import org.json.JSONObject
 
 class LoginActivity : AppCompatActivity() {
