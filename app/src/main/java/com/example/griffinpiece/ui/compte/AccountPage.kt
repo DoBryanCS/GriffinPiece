@@ -1,8 +1,9 @@
-package com.example.griffinpiece
+package com.example.griffinpiece.ui.compte
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import com.example.griffinpiece.R
 
 class AccountPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

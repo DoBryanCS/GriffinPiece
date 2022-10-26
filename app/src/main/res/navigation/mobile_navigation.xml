@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.griffinpiece.ui.accueil.FirstFragment"
+        android:label="Accueil"
+        tools:layout="@layout/fragment_first" />
+
+    <fragment
+        android:id="@+id/navigation_favorites"
+        android:name="com.example.griffinpiece.ui.favori.SecondFragment"
+        android:label="Favori"
+        tools:layout="@layout/fragment_second" />
+
+    <fragment
+        android:id="@+id/navigation_history"
+        android:name="com.example.griffinpiece.ui.historique.ThirdFragment"
+        android:label="Historique"
+        tools:layout="@layout/fragment_third" />
+
+    <fragment
+        android:id="@+id/navigation_account"
+        android:name="com.example.griffinpiece.ui.compte.FourthFragment"
+        android:label="Compte"
+        tools:layout="@layout/fragment_fourth" />
+
+</navigation>
