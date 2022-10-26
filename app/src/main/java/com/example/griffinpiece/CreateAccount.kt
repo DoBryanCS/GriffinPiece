@@ -2,6 +2,8 @@ package com.example.griffinpiece
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -20,10 +22,14 @@ class CreateAccount : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_signup)
 
         actionBar = supportActionBar!!
         actionBar.title = "Créer un compte"
+        actionBar.setBackgroundDrawable(ColorDrawable(Color.parseColor("#040404")))
+
+        actionBar.setDisplayHomeAsUpEnabled(true)
+        actionBar.setDisplayShowHomeEnabled(true)
 
         var formEmail: EditText = findViewById(R.id.loginEmail)
         var formUsername: EditText = findViewById(R.id.loginUsername)
@@ -38,7 +44,7 @@ class CreateAccount : AppCompatActivity() {
 
             val queue = Volley.newRequestQueue(this)
 
-            val url = "http://172.105.104.199:3000/auth/register"
+            val url = "http://172.105.104.199/auth/register"
 
             val jsonobject = JSONObject()
 
@@ -68,5 +74,10 @@ class CreateAccount : AppCompatActivity() {
 
 
 
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
     }
 }

@@ -6,13 +6,13 @@
     android:layout_height="match_parent"
     android:background="@color/black"
 
-    tools:context=".LoginActivity">
+    tools:context=".CreateAccount">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="login"
+        android:text="signup"
         android:textColor="@color/white"
         android:layout_above="@id/textView"
         style="@style/TextAppearance.MaterialComponents.Caption"/>
@@ -92,14 +92,14 @@
         android:layout_below="@id/passwordTil"
         android:layout_marginBottom="75sp"
         android:backgroundTint="#FF5722"
-        android:text="@string/se_connecter"
+        android:text="S'inscrire"
         android:textColor="@color/black" />
 
     <TextView
         android:id="@+id/txtViewAccount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/vous_n_avez_pas_de_compte"
+        android:text="Vous avez un compte?"
         android:layout_below="@id/btnSignUp"
         android:textAlignment="center"
         android:textColor="@color/white"
@@ -116,4 +116,3 @@
         android:textColor="@color/teal_700" />
 
 </RelativeLayout>
-
