@@ -5,7 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.griffinpiece.models.Show
-import com.example.griffinpiece.repositories.ShowRepository
+import com.example.griffinpiece.repositories.ShowsRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -15,7 +15,7 @@ class ShowsViewModel(application: Application) : AndroidViewModel(application) {
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
-            val showRepository = ShowRepository(getApplication())
+            val showRepository = ShowsRepository(getApplication())
             showRepository.getShows(shows)
         }
     }

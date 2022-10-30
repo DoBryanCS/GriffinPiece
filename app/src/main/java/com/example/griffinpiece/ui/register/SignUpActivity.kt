@@ -22,7 +22,7 @@ import com.example.griffinpiece.ui.login.LoginActivity
 import com.example.griffinpiece.ui.login.LoginViewModel
 import org.json.JSONObject
 
-class CreateAccount : AppCompatActivity() {
+class SignUpActivity : AppCompatActivity() {
     private lateinit var actionBar: ActionBar
     private lateinit var signUpViewModel: SignUpViewModel
     @SuppressLint("MissingInflatedId")

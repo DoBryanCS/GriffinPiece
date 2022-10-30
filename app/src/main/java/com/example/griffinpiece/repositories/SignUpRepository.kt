@@ -15,7 +15,7 @@ import org.json.JSONObject
 class SignUpRepository(val app: Application) {
     val intentCreatedAccount = Intent(app, LoginActivity::class.java)
     fun signUp (email: String?, username: String?, password: String?) {
-        val url = SRVURL + "/auth/register"
+        val url = "$SRVURL/auth/register"
 
         val queue = Volley.newRequestQueue(app)
         val jsonbody = JSONObject()
