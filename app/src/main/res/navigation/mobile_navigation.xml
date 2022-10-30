@@ -7,26 +7,26 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.griffinpiece.ui.accueil.FirstFragment"
+        android:name="com.example.griffinpiece.ui.accueil.ShowsFragment"
         android:label="Accueil"
-        tools:layout="@layout/fragment_first" />
+        tools:layout="@layout/fragment_shows" />
 
     <fragment
         android:id="@+id/navigation_favorites"
-        android:name="com.example.griffinpiece.ui.favori.SecondFragment"
+        android:name="com.example.griffinpiece.ui.favori.FavoritesFragment"
         android:label="Favori"
-        tools:layout="@layout/fragment_second" />
+        tools:layout="@layout/fragment_favorites" />
 
     <fragment
         android:id="@+id/navigation_history"
-        android:name="com.example.griffinpiece.ui.historique.ThirdFragment"
+        android:name="com.example.griffinpiece.ui.historique.HistoryFragment"
         android:label="Historique"
-        tools:layout="@layout/fragment_third" />
+        tools:layout="@layout/fragment_history" />
 
     <fragment
         android:id="@+id/navigation_account"
-        android:name="com.example.griffinpiece.ui.compte.FourthFragment"
+        android:name="com.example.griffinpiece.ui.compte.AccountFragment"
         android:label="Compte"
-        tools:layout="@layout/fragment_fourth" />
+        tools:layout="@layout/fragment_account" />
 
 </navigation>

@@ -8,7 +8,7 @@ import com.example.griffinpiece.R
 class AccountPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_fourth)
+        setContentView(R.layout.fragment_account)
 
         val txtViewEmail: TextView = findViewById(R.id.txtViewEmail)
         val txtViewUsername: TextView = findViewById(R.id.txtViewUsername)

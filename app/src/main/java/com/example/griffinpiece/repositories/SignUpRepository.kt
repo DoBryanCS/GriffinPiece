@@ -8,11 +8,12 @@ import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.example.griffinpiece.MainActivity.Companion.SRVURL
+import com.example.griffinpiece.ui.login.LoginActivity
 import com.example.griffinpiece.ui.login.LoginViewModel
 import org.json.JSONObject
 
 class SignUpRepository(val app: Application) {
-    val intentCreatedAccount = Intent(app, LoginViewModel::class.java)
+    val intentCreatedAccount = Intent(app, LoginActivity::class.java)
     fun signUp (email: String?, username: String?, password: String?) {
         val url = SRVURL + "/auth/register"
 
@@ -25,9 +26,7 @@ class SignUpRepository(val app: Application) {
         val request = JsonObjectRequest(
             Request.Method.POST, url, jsonbody,
             Response.Listener {
-                Toast.makeText(app, "L'utilisateur ${it.getString("username")} a été créee", Toast.LENGTH_SHORT).show()
-                intentCreatedAccount.putExtra("username", it.getString("username"))
-                app.startActivity(intentCreatedAccount)
+                Toast.makeText(app, "L'utilisateur ${username} a été créee", Toast.LENGTH_SHORT).show()
               },
             Response.ErrorListener {
                 Toast.makeText(app, "Erreur durant le processus de création d'utilisateur !" , Toast.LENGTH_SHORT).show()

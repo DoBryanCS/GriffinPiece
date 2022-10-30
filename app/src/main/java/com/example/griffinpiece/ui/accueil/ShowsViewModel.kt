@@ -10,7 +10,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 @Suppress("RedundantVisibilityModifier")
-class ShowViewModel(application: Application) : AndroidViewModel(application) {
+class ShowsViewModel(application: Application) : AndroidViewModel(application) {
     public var shows: MutableLiveData<MutableList<Show>> = MutableLiveData(mutableListOf())
 
     init {

@@ -13,7 +13,6 @@ class SignUpViewModel (private val app: Application) : AndroidViewModel(app) {
 
 
     val signUpRepository = SignUpRepository(app)
-
     val email = MutableLiveData<String>()
     val username = MutableLiveData<String>()
     val password =MutableLiveData<String>()
