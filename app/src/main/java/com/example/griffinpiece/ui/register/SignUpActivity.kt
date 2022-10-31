@@ -1,6 +1,7 @@
 package com.example.griffinpiece.ui.register
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -11,20 +12,26 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.ActionBar
+import androidx.lifecycle.ViewModelProvider
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.example.griffinpiece.R
 import com.example.griffinpiece.ui.login.LoginActivity
+import com.example.griffinpiece.ui.login.LoginViewModel
 import org.json.JSONObject
 
-class CreateAccount : AppCompatActivity() {
+class SignUpActivity : AppCompatActivity() {
     private lateinit var actionBar: ActionBar
+    private lateinit var signUpViewModel: SignUpViewModel
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
+
+        this.signUpViewModel =
+            ViewModelProvider(this).get(SignUpViewModel::class.java)
 
         actionBar = supportActionBar!!
         actionBar.title = "Créer un compte"
@@ -36,37 +43,23 @@ class CreateAccount : AppCompatActivity() {
         var formEmail: EditText = findViewById(R.id.loginEmail)
         var formUsername: EditText = findViewById(R.id.loginUsername)
         var formPassword: EditText = findViewById(R.id.loginPassword)
-        var clickHere: TextView = findViewById(R.id.clickHereSignUp)
+        var clickHere: TextView = findViewById(R.id.clickHereLogin)
 
 
         var btnCreateAccount: Button = findViewById(R.id.btnSignUp)
 
         var intentLoginAccount = Intent(this, LoginActivity::class.java)
         btnCreateAccount.setOnClickListener{
-
-            val queue = Volley.newRequestQueue(this)
-
-            val url = "http://172.105.104.199/auth/register"
-
-            val jsonobject = JSONObject()
-
-            jsonobject.put("email", formEmail.text)
-            jsonobject.put("password", formPassword.text)
-            jsonobject.put("username", formUsername.text)
-
-            val request = JsonObjectRequest(Request.Method.POST,url, jsonobject,
-                Response.Listener {
-                    Log.i("email",jsonobject.getString("email"))
-                    Log.i("username", jsonobject.getString("username"))
-                    intentLoginAccount.putExtra("email", jsonobject.getString("email"))
-                    intentLoginAccount.putExtra("username",jsonobject.getString("username"))
-                    this.startActivity(intentLoginAccount)
-                },
-
-                Response.ErrorListener {
-                    Log.i("ERROR", it.toString())
-                })
-            queue.add(request)
+            signUpViewModel.email.value = formEmail.text.toString()
+            signUpViewModel.username.value = formUsername.text.toString()
+            signUpViewModel.password.value = formPassword.text.toString()
+            signUpViewModel.signUp()
+            val sharedPreferences = getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)
+            val editor = sharedPreferences.edit()
+            editor.apply() {
+                putString("STRING_KEY", formEmail.text.toString())
+            }.apply()
+            this.startActivity(intentLoginAccount)
         }
 
 

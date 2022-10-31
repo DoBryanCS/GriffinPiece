@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ui.favori.FavoritesFragment">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Séries"
+        android:text="Favoris"
         android:textColor="@color/white"
         android:textAlignment="center"
         android:textSize="36sp"
@@ -28,5 +28,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:listitem="@layout/fragment_shows_item" />
+        tools:listitem="@layout/fagment_favorites_item" />
 </androidx.constraintlayout.widget.ConstraintLayout>

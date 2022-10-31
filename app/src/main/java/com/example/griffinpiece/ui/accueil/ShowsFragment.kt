@@ -12,16 +12,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.griffinpiece.R
 import com.example.griffinpiece.adapters.ShowsRecyclerViewAdapter
 
-class FirstFragment:Fragment() {
+class ShowsFragment:Fragment() {
     private lateinit var rvListeShow: RecyclerView
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        val view: View = inflater.inflate(R.layout.fragment_first, container, false)
+        val view: View = inflater.inflate(R.layout.fragment_shows, container, false)
         val activity = activity as Context
         this.rvListeShow = view.findViewById(R.id.rvListeShows)
-        val ShowViewModel = ViewModelProvider(this).get(ShowViewModel::class.java)
+        val ShowViewModel = ViewModelProvider(this).get(ShowsViewModel::class.java)
         this.rvListeShow.layoutManager = GridLayoutManager(activity, 2)
 
         ShowViewModel.shows.observe(viewLifecycleOwner) {

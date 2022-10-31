@@ -1,27 +1,60 @@
 package com.example.griffinpiece.repositories
 
 import android.app.Application
+import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import com.android.volley.Request
+import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.example.griffinpiece.MainActivity.Companion.SRVURL
+import com.example.griffinpiece.models.Season
 import com.example.griffinpiece.models.Show
 import com.google.gson.Gson
 
-class ShowRepository(private val application: Application) {
-    fun getShows(shows: MutableLiveData<MutableList<Show>>) {
-
+class ShowRepository (private val application: Application) {
+    fun getShowDetails(
+        id: MutableLiveData<Int>, title: MutableLiveData<String>, description: MutableLiveData<String>, imageUrl: MutableLiveData<String>,
+        releaseDate: MutableLiveData<String>, genre: MutableLiveData<String>, rating: MutableLiveData<Int>) {
+        val url = SRVURL + "/show/${id}"
         val queue = Volley.newRequestQueue(application)
-        val r = StringRequest(
-            Request.Method.GET,
-            "http://172.105.104.199/show",
+
+        val request = StringRequest(
+            Request.Method.GET, url,
             {
-                val arrayShows = Gson().fromJson(it, Array<Show>::class.java)
-                shows.value = arrayShows.toMutableList()
+                val gson = Gson()
+                val details  = gson.fromJson(it, Show::class.java)
+                title.value = details.title
+                description.value = details.description
+                imageUrl.value = details.imageUrl
+                releaseDate.value = details.releaseDate
+                genre.value = details.genre
+                rating.value = details.rating
             },
             {
-                println("ERREUR: /api/show")
-            })
-        queue.add(r)
+                Toast.makeText(application, "Erreur dans la requête pour afficher les details du show", Toast.LENGTH_SHORT).show()
+            }
+        )
+        queue.add(request)
+    }
+
+
+    fun getSeasons(showId: MutableLiveData<Int> ,datasetSeasons: MutableLiveData<MutableList<Season>>) {
+        val url = SRVURL + "/seasons/${showId}"
+        val queue = Volley.newRequestQueue(application)
+
+        val request = StringRequest(
+            Request.Method.GET,url,
+            Response.Listener {
+                val gson = Gson()
+                val seasonsArray = gson.fromJson(it, Array<Season>::class.java)
+                datasetSeasons.value =seasonsArray.toMutableList()
+            },
+            Response.ErrorListener {
+                Log.e("Erreur", it.toString())
+            }
+        )
+        queue.add(request)
     }
 }

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/black"
 
-    tools:context=".LoginActivity">
+    tools:context=".ui.login.LoginActivity">
 
     <TextView
         android:layout_width="wrap_content"
@@ -35,7 +35,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/emailTil"
-        android:layout_above="@id/usernameTil"
+        android:layout_above="@id/passwordTil"
         android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -47,26 +47,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email"
+            android:textColor="@color/white"
             android:inputType="textEmailAddress" />
 
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/usernameTil"
-        android:layout_above="@id/passwordTil"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_centerInParent="true"
-        android:textColorHint="@color/white"
-        app:boxBackgroundColor="#323131">
-
-        <EditText
-            android:id="@+id/loginUsername"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Username"
-            android:inputType="textPersonName" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -82,14 +65,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Mot de passe"
+            android:textColor="@color/white"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/btnSignUp"
+        android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/passwordTil"
+        android:layout_below="@+id/passwordTil"
         android:layout_marginBottom="75sp"
         android:backgroundTint="#FF5722"
         android:text="@string/se_connecter"
@@ -100,7 +84,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/vous_n_avez_pas_de_compte"
-        android:layout_below="@id/btnSignUp"
+        android:layout_below="@+id/btnLogin"
         android:textAlignment="center"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
@@ -110,7 +94,7 @@
         android:id="@+id/clickHereSignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/txtViewAccount"
+        android:layout_below="@+id/txtViewAccount"
         android:text="@string/cliquez_ici"
         android:textAlignment="center"
         android:textColor="@color/teal_700" />

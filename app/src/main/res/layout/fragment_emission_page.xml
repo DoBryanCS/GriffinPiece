@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EmissionPageFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imgEpisode"
+            android:layout_width="match_parent"
+            android:layout_height="265dp"
+            tools:src="@tools:sample/avatars" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="134dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/titleEpisode"
+                android:layout_width="250dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="TextView" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_gravity="center">
+
+                <ImageView
+                    android:id="@+id/heartRating1"
+                    android:layout_width="50dp"
+                    android:layout_height="63dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerInParent="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginEnd="5dp"
+                    android:src="@drawable/heart_favorite" />
+
+                <ImageView
+                    android:id="@+id/heartRating2"
+                    android:layout_width="50dp"
+                    android:layout_height="63dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_centerInParent="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_toEndOf="@id/heartRating1"
+                    android:src="@drawable/heart_favorite" />
+
+                <ImageView
+                    android:id="@+id/heartRating3"
+                    android:layout_width="50dp"
+                    android:layout_height="63dp"
+                    android:layout_centerInParent="true"
+                    android:layout_marginEnd="5dp"
+                    android:layout_toEndOf="@id/heartRating2"
+                    android:src="@drawable/heart_favorite" />
+
+                <ImageView
+                    android:id="@+id/heartRating4"
+                    android:layout_width="50dp"
+                    android:layout_height="63dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_centerInParent="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_toEndOf="@id/heartRating3"
+                    android:src="@drawable/heart_favorite" />
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="50dp"
+                    android:layout_height="63dp"
+                    android:layout_centerInParent="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_toEndOf="@id/heartRating4"
+                    android:layout_marginEnd="5dp"
+                    android:src="@drawable/heart_favorite" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/Favoris"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Favoris?" />
+
+        <ImageView
+            android:id="@+id/isFavoriteEpisode"
+            android:layout_width="255dp"
+            android:layout_height="112dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/heart_favorite" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/episodeSeasons"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+</FrameLayout>
