@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.os.bundleOf
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.griffinpiece.R
 import com.example.griffinpiece.models.Show
@@ -28,6 +30,11 @@ class ShowsRecyclerViewAdapter(private val datasetShows: MutableList<Show>) :
             this.datasetShows[position].title
         val imgShow = holderShow.view.findViewById<ImageView>(R.id.imgShow)
         Picasso.get().load(this.datasetShows[position].imageUrl).into(imgShow)
+        holderShow.view.setOnClickListener {
+            val id = bundleOf(Pair("id", datasetShows[position].id))
+            holderShow.view.findNavController().navigate(R.id.navigation_emission,id)
+        }
+
     }
 
     override fun getItemCount(): Int = this.datasetShows.size

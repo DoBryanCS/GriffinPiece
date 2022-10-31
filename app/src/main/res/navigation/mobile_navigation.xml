@@ -28,5 +28,9 @@
         android:name="com.example.griffinpiece.ui.compte.AccountFragment"
         android:label="Compte"
         tools:layout="@layout/fragment_account" />
+    <fragment
+        android:id="@+id/navigation_emission"
+        android:name="com.example.griffinpiece.ui.Emission.EmissionPageFragment"
+        android:label="EmissionPageFragment" />
 
 </navigation>
