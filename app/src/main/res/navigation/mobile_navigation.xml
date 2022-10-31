@@ -32,5 +32,10 @@
         android:id="@+id/navigation_emission"
         android:name="com.example.griffinpiece.ui.Emission.EmissionPageFragment"
         android:label="EmissionPageFragment" />
+    <fragment
+        android:id="@+id/navigation_season"
+        android:name="com.example.griffinpiece.ui.Season.SeasonFragment"
+        android:label="fragment_season2"
+        tools:layout="@layout/fragment_season2" />
 
 </navigation>
