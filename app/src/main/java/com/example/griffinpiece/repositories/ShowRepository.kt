@@ -15,25 +15,26 @@ import com.google.gson.Gson
 
 class ShowRepository (private val application: Application) {
     fun getShowDetails(
-        id: MutableLiveData<Int>, title: MutableLiveData<String>, description: MutableLiveData<String>, imageUrl: MutableLiveData<String>,
+        id: MutableLiveData<Int>, details: MutableLiveData<Show>, title: MutableLiveData<String>, description: MutableLiveData<String>, imageUrl: MutableLiveData<String>,
         releaseDate: MutableLiveData<String>, genre: MutableLiveData<String>, rating: MutableLiveData<Int>) {
-        val url = SRVURL + "/show/${id}"
+        val url = SRVURL + "/show/${id.value}"
         val queue = Volley.newRequestQueue(application)
 
         val request = StringRequest(
             Request.Method.GET, url,
             {
                 val gson = Gson()
-                val details  = gson.fromJson(it, Show::class.java)
-                title.value = details.title
-                description.value = details.description
-                imageUrl.value = details.imageUrl
-                releaseDate.value = details.releaseDate
-                genre.value = details.genre
-                rating.value = details.rating
+                details.value  = gson.fromJson(it, Show::class.java)
+                title.value = details.value?.title
+                description.value = details.value?.description
+                imageUrl.value = details.value?.imageUrl
+                releaseDate.value = details.value?.releaseDate
+                genre.value = details.value?.genre
+                rating.value = details.value?.rating
             },
             {
                 Toast.makeText(application, "Erreur dans la requête pour afficher les details du show", Toast.LENGTH_SHORT).show()
+                Log.e("Erreur", it.toString())
             }
         )
         queue.add(request)
@@ -41,7 +42,7 @@ class ShowRepository (private val application: Application) {
 
 
     fun getSeasons(showId: MutableLiveData<Int> ,datasetSeasons: MutableLiveData<MutableList<Season>>) {
-        val url = SRVURL + "/seasons/${showId}"
+        val url = SRVURL + "/seasons/${showId.value}"
         val queue = Volley.newRequestQueue(application)
 
         val request = StringRequest(

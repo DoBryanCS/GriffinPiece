@@ -5,12 +5,14 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.griffinpiece.models.Season
+import com.example.griffinpiece.models.Show
 import com.example.griffinpiece.repositories.ShowRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class EmissionViewModel(private val app: Application): AndroidViewModel(app) {
     var datasetSeasons: MutableLiveData<MutableList<Season>> = MutableLiveData(mutableListOf())
+    var details = MutableLiveData<Show>()
     var id = MutableLiveData<Int>()
     var title = MutableLiveData<String>()
     var description = MutableLiveData<String>()
@@ -25,7 +27,7 @@ class EmissionViewModel(private val app: Application): AndroidViewModel(app) {
 
     init {
         viewModelScope.launch(Dispatchers.IO){
-            showRepository.getShowDetails(id, title, description, imageUrl, releaseDate, genre, rating)
+            showRepository.getShowDetails(id, details, title, description, imageUrl, releaseDate, genre, rating)
             showRepository.getSeasons(id, datasetSeasons)
         }
     }

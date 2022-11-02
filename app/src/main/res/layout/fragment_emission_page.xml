@@ -12,7 +12,7 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/imgEpisode"
+            android:id="@+id/imgEmission"
             android:layout_width="match_parent"
             android:layout_height="265dp"
             tools:src="@tools:sample/avatars" />
@@ -23,7 +23,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/titleEpisode"
+                android:id="@+id/titleEmission"
                 android:layout_width="250dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -102,7 +102,7 @@
             android:src="@drawable/heart_favorite" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/episodeSeasons"
+            android:id="@+id/emissionSeasons"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>

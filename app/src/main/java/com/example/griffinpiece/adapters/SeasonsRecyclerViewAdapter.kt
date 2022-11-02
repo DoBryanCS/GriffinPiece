@@ -33,7 +33,7 @@ class SeasonsRecyclerViewAdapter (private val datasetSeason: MutableList<Season>
 
         holder.view.setOnClickListener {
             val id = bundleOf(Pair("id", datasetSeason[position].id))
-            holder.view.findNavController().navigate(R.id.navigation_season)
+            holder.view.findNavController().navigate(R.id.navigation_season,id)
         }
     }
 
