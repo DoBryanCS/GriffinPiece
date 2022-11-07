@@ -19,7 +19,8 @@ class EmissionViewModel(private val app: Application): AndroidViewModel(app) {
     var imageUrl = MutableLiveData<String>()
     var releaseDate = MutableLiveData<String>()
     var genre = MutableLiveData<String>()
-    var rating = MutableLiveData<Int>()
+    var rating = MutableLiveData<Float>()
+    var isFavorite = MutableLiveData<Boolean>()
 
 
 
@@ -29,6 +30,7 @@ class EmissionViewModel(private val app: Application): AndroidViewModel(app) {
         viewModelScope.launch(Dispatchers.IO){
             showRepository.getShowDetails(id, details, title, description, imageUrl, releaseDate, genre, rating)
             showRepository.getSeasons(id, datasetSeasons)
+            showRepository.getFavorite(id, isFavorite)
         }
     }
 }

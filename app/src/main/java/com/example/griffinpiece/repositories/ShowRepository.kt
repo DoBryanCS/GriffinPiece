@@ -6,9 +6,11 @@ import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import com.android.volley.Request
 import com.android.volley.Response
+import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.griffinpiece.MainActivity.Companion.SRVURL
+import com.example.griffinpiece.MainActivity.Companion.TOKEN
 import com.example.griffinpiece.models.Season
 import com.example.griffinpiece.models.Show
 import com.google.gson.Gson
@@ -16,7 +18,7 @@ import com.google.gson.Gson
 class ShowRepository (private val application: Application) {
     fun getShowDetails(
         id: MutableLiveData<Int>, details: MutableLiveData<Show>, title: MutableLiveData<String>, description: MutableLiveData<String>, imageUrl: MutableLiveData<String>,
-        releaseDate: MutableLiveData<String>, genre: MutableLiveData<String>, rating: MutableLiveData<Int>) {
+        releaseDate: MutableLiveData<String>, genre: MutableLiveData<String>, rating: MutableLiveData<Float>) {
         val url = SRVURL + "/show/${id.value}"
         val queue = Volley.newRequestQueue(application)
 
@@ -58,4 +60,55 @@ class ShowRepository (private val application: Application) {
         )
         queue.add(request)
     }
-}
+
+    fun getFavorite(id: MutableLiveData<Int>, isFavorite:MutableLiveData<Boolean>) {
+        var url = SRVURL + "/favorite/${id.value}"
+        val queue = Volley.newRequestQueue(application)
+
+        val request = object: JsonObjectRequest (
+            Request.Method.GET, url, null,
+            Response.Listener {
+                isFavorite.value = it.getBoolean("isFavorite")
+            },
+            Response.ErrorListener {  }
+        ) {
+            override fun getHeaders(): MutableMap<String, String> {
+                val headerMap = mutableMapOf<String, String>()
+                headerMap.put("Content-Type","application/json")
+                headerMap.put("Authorization", "Bearer ${TOKEN}")
+                return headerMap
+            }
+        }
+        queue.add(request)
+        }
+
+    fun deleteFavorite(id: MutableLiveData<Int>, isFavorite: MutableLiveData<Boolean>) {
+        val url =  SRVURL + "/favorite/${id.value}"
+        val queue = Volley.newRequestQueue(application)
+        val request = object :StringRequest (
+            Request.Method.DELETE, url,
+            Response.Listener {
+                isFavorite.value = false
+                Toast.makeText(application, "Le show a été enlevée de vos favoris D:", Toast.LENGTH_SHORT).show()
+
+            },
+            Response.ErrorListener {
+                Toast.makeText(application, it.toString(), Toast.LENGTH_SHORT).show()
+                Log.i("Erreur", it.toString())
+            },
+        ){
+            override fun getHeaders(): MutableMap<String, String> {
+                val headerMap = mutableMapOf<String, String>()
+                headerMap.put("Content-Type", "application/json")
+                headerMap.put("Authorization", "Bearer ${TOKEN}")
+                return headerMap
+            }
+        }
+        queue.add(request)
+    }
+
+
+
+
+    }
+

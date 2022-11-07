@@ -1,6 +1,7 @@
 package com.example.griffinpiece.adapters
 
 import android.media.Image
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,8 +33,9 @@ class SeasonsRecyclerViewAdapter (private val datasetSeason: MutableList<Season>
         titleSeason.setText(datasetSeason[position].title)
 
         holder.view.setOnClickListener {
-            val id = bundleOf(Pair("id", datasetSeason[position].id))
-            holder.view.findNavController().navigate(R.id.navigation_season,id)
+            val seasonId = bundleOf(Pair("seasonId", datasetSeason[position].seasonId))
+            Log.i("Id", seasonId.toString())
+            holder.view.findNavController().navigate(R.id.navigation_season,seasonId)
         }
     }
 

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.RatingBar
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -40,10 +41,12 @@ class EmissionPageFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val emissionViewModel = ViewModelProvider(this).get(EmissionViewModel::class.java)
-        this.rvEmissionSeasons = view.findViewById<RecyclerView>(R.id.emissionSeasons)
+        this.rvEmissionSeasons = view.findViewById<RecyclerView>(R.id.seasonEpisodes)
 
-        val imgEpisode = view.findViewById<ImageView>(R.id.imgEmission)
-        val titleEmission = view.findViewById<TextView>(R.id.titleEmission)
+        val imgEpisode = view.findViewById<ImageView>(R.id.seasonImg)
+        val titleEmission = view.findViewById<TextView>(R.id.seasonTitle)
+
+        val ratingBar = view.findViewById<RatingBar>(R.id.RatingBar)
 
 
         this.rvEmissionSeasons.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL,false)
@@ -54,6 +57,7 @@ class EmissionPageFragment : Fragment() {
         emissionViewModel.details.observe(/* owner = */ viewLifecycleOwner) {
             Picasso.get().load(it.imageUrl).into(imgEpisode)
             titleEmission.setText(it.title)
+            ratingBar.rating = it.rating
         }
 
         emissionViewModel.datasetSeasons.observe(viewLifecycleOwner) {
