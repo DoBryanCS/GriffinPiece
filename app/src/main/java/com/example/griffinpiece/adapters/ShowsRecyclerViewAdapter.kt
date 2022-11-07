@@ -29,8 +29,10 @@ class ShowsRecyclerViewAdapter(private val datasetShows: MutableList<Show>) :
     override fun onBindViewHolder(holderShow: ShowViewHolder, position: Int) {
         holderShow.view.findViewById<TextView>(R.id.tvShow).text =
             this.datasetShows[position].title
+
         val imgShow = holderShow.view.findViewById<ImageView>(R.id.imgShow)
         Picasso.get().load(this.datasetShows[position].imageUrl).into(imgShow)
+
         holderShow.view.setOnClickListener {
             val id = bundleOf(Pair("id", datasetShows[position].id))
             Log.i("id", id.toString())
