@@ -34,7 +34,11 @@ class AccountFragment : Fragment() {
         btnChangeEmail = view.findViewById(R.id.btnChangeEmail)
         tvUsername = view.findViewById(R.id.txtViewUsername)
         btnChangePassword = view.findViewById(R.id.btnChangePassword)
-        tvUsername.setText(accountViewModel.userInfo.value?.username.toString())
+
+        accountViewModel.userInfo.observe(viewLifecycleOwner) {
+            tvUsername.setText(accountViewModel.userInfo.value?.username.toString())
+        }
+
         btnChangeEmail.setOnClickListener {
             val intent = Intent (getActivity(), ChangeEmailActivity::class.java)
             getActivity()?.startActivity(intent)

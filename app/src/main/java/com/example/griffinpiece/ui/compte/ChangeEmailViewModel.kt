@@ -9,14 +9,14 @@ import com.example.griffinpiece.repositories.AccountRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class ChangeEmailViewModel(val app: Application, newEmail: String) : AndroidViewModel(app) {
+class ChangeEmailViewModel(val app: Application) : AndroidViewModel(app) {
     private val accountRepository = AccountRepository(getApplication())
     val success = MutableLiveData<Boolean>()
 
 
-    fun changeEmail(newEmail: String, currentPassword: String) {
+    fun changeEmail(currentPassword: String, newEmail: String) {
         viewModelScope.launch(Dispatchers.IO) {
-            accountRepository.changeEmail(newEmail, currentPassword, success)
+            accountRepository.changeEmail(currentPassword, newEmail, success)
 
         }
     }
