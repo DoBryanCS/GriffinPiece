@@ -30,7 +30,7 @@ class EmissionPageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        this.rvEmissionSeasons = view.findViewById<RecyclerView>(R.id.seasonEpisodes)
+        this.rvEmissionSeasons = view.findViewById<RecyclerView>(R.id.rvSeasonEpisodes)
 
         val imgEpisode = view.findViewById<ImageView>(R.id.seasonImg)
         val titleEmission = view.findViewById<TextView>(R.id.seasonTitle)

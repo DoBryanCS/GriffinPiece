@@ -43,10 +43,10 @@ android:layout_height="match_parent">
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/seasonEpisodes"
+        android:id="@+id/rvSeasonEpisodes"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/fragment_seasons_item">
+        tools:listitem="@layout/fragment_episode_item">
 
     </androidx.recyclerview.widget.RecyclerView>
 

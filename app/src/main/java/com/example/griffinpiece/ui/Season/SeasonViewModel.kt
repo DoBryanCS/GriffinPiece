@@ -13,12 +13,16 @@ import kotlinx.coroutines.launch
 
 class SeasonViewModel (private val app: Application): AndroidViewModel(app) {
     var detailsSeason = MutableLiveData<Season>()
+    var datasetEpisode = MutableLiveData<MutableList<Episode>>()
 
     private val seasonRepository =  SeasonRepository(app)
 
     fun getData(seasonId: Int) {
         viewModelScope.launch(Dispatchers.IO) {
             seasonRepository.getSeason(seasonId, detailsSeason)
+            seasonRepository.getEpisodes(seasonId, datasetEpisode)
         }
     }
+
+
 }
