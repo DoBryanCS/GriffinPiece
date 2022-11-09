@@ -1,14 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EpisodePageFragment">
+    tools:context="MainActivity">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <VideoView
+        android:id="@+id/videoView"
+        android:layout_width="412dp"
+        android:layout_height="195dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <Button
+        android:id="@+id/playBtn"
+        android:layout_width="50dp"
+        android:layout_height="31dp"
+        android:layout_marginEnd="4dp"
+        android:background="@drawable/fade_image"
+        android:insetRight="10dp"
+        app:backgroundTint="@color/material_on_background_disabled"
+        app:icon="@android:drawable/ic_media_play"
+        app:iconPadding="10dp"
+        app:iconTint="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/seek_bar"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/videoView"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <SeekBar
+        android:id="@+id/seek_bar"
+        android:layout_width="336dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="8dp"
+        android:saveEnabled="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/videoView" />
+</androidx.constraintlayout.widget.ConstraintLayout>

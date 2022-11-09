@@ -99,9 +99,4 @@ class ShowRepository (private val application: Application) {
         }
         queue.add(request)
     }
-
-
-
-
-    }
-
+}

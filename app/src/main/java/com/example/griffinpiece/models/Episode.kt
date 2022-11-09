@@ -6,5 +6,5 @@ data class Episode (
     var episodeNumber: Int,
     var length : Int,
     var imageUrl: String,
-    var showTitle: String
+    var videoUrl: String
 )

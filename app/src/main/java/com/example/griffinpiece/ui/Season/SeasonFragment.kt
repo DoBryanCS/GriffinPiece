@@ -9,26 +9,31 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.griffinpiece.R
+import com.example.griffinpiece.adapters.EpisodesRecyclerViewAdapter
 import com.squareup.picasso.Picasso
-import org.w3c.dom.Text
 
 class SeasonFragment : Fragment() {
 
 
     private lateinit var viewModel: SeasonViewModel
+    private lateinit var episodeRecyclerView: RecyclerView
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_season2, container, false)
+        return inflater.inflate(R.layout.fragment_season, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val seasonViewModel = ViewModelProvider(this).get(SeasonViewModel::class.java)
-
+        this.episodeRecyclerView = view.findViewById(R.id.rvSeasonEpisodes)
+        this.episodeRecyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
 
         val seasonImg = view.findViewById<ImageView>(R.id.seasonImg)
         val seasonTitle = view.findViewById<TextView>(R.id.seasonTitle)
@@ -43,6 +48,12 @@ class SeasonFragment : Fragment() {
             seasonTitle.setText(it.title)
             showTitle.setText(it.showTitle)
         }
+
+        seasonViewModel.datasetEpisode.observe(viewLifecycleOwner) {
+            this.episodeRecyclerView.adapter = EpisodesRecyclerViewAdapter(it)
+        }
+
+
 
 
     }

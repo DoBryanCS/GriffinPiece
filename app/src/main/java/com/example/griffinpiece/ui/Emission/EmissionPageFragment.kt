@@ -30,12 +30,13 @@ class EmissionPageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        this.rvEmissionSeasons = view.findViewById<RecyclerView>(R.id.seasonEpisodes)
+        this.rvEmissionSeasons = view.findViewById<RecyclerView>(R.id.rvSeasonEpisodes)
 
         val imgEpisode = view.findViewById<ImageView>(R.id.seasonImg)
         val titleEmission = view.findViewById<TextView>(R.id.seasonTitle)
 
         val ratingBar = view.findViewById<RatingBar>(R.id.RatingBar)
+        val favoriteButton = view.findViewById<ImageView>(R.id.btnFavorite)
 
 
         this.rvEmissionSeasons.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL,false)
@@ -53,6 +54,10 @@ class EmissionPageFragment : Fragment() {
 
         emissionViewModel.datasetSeasons.observe(viewLifecycleOwner) {
             this.rvEmissionSeasons.adapter = SeasonsRecyclerViewAdapter(it)
+        }
+
+        emissionViewModel.isFavorite.observe(viewLifecycleOwner) {
+    
         }
 
 
