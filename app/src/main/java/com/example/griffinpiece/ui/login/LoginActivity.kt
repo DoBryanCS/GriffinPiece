@@ -28,12 +28,12 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        var loginEmail: EditText = findViewById(R.id.loginEmail)
-        var loginPassword: EditText = findViewById(R.id.loginPassword)
-        var clickHere: TextView = findViewById(R.id.clickHereSignUp)
+        val loginEmail: EditText = findViewById(R.id.loginEmail)
+        val loginPassword: EditText = findViewById(R.id.loginPassword)
+        val btnToSignUp: TextView = findViewById(R.id.clickHereSignUp)
 
-        var btnLogin: Button = findViewById(R.id.btnLogin)
-        var intentCreateAccount = Intent(this, SignUpActivity::class.java)
+        val btnLogin: Button = findViewById(R.id.btnLogin)
+        val intentCreateAccount = Intent(this, SignUpActivity::class.java)
 
         val sharedPreferences = getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)
         val savedString = sharedPreferences.getString("STRING_KEY", null)
@@ -51,33 +51,27 @@ class LoginActivity : AppCompatActivity() {
         actionBar.setDisplayShowHomeEnabled(true)
         val intentConnected = Intent(application, MainActivity::class.java)
 
-        fun userAuthentification() {
-            if (TOKEN == "") {
-                Handler(Looper.getMainLooper()).post {
-                    Toast.makeText(
-                        applicationContext,
-                        "Erreur d'authentification",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-            } else {
-                this.startActivity(intentConnected)
-            }
-        }
 
         btnLogin.setOnClickListener {
-            loginViewModel.email.value = loginEmail.text.toString()
-            loginViewModel.password.value = loginPassword.text.toString()
-            loginViewModel.login()
-            Timer().schedule(500) {
-                userAuthentification()
+            loginViewModel.login(loginEmail.text.toString(), loginPassword.text.toString())
+        }
+
+        loginViewModel.success.observe(this) {
+            if (it){
+                this.startActivity(intentConnected)
+            }
+            else {
+                Toast.makeText(
+                    applicationContext,
+                    "Erreur d'authentification",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
 
 
 
-
-        clickHere.setOnClickListener{
+        btnToSignUp.setOnClickListener{
             this.startActivity(intentCreateAccount)
         }
 

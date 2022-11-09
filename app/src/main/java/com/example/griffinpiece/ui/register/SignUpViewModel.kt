@@ -12,14 +12,12 @@ import kotlinx.coroutines.launch
 class SignUpViewModel (private val app: Application) : AndroidViewModel(app) {
 
 
-    val signUpRepository = SignUpRepository(app)
-    val email = MutableLiveData<String>()
-    val username = MutableLiveData<String>()
-    val password =MutableLiveData<String>()
+    private val signUpRepository = SignUpRepository(app)
+    var success = MutableLiveData<Boolean>()
 
-    fun signUp() {
+    fun signUp(email: String, username: String, password: String) {
         viewModelScope.launch(Dispatchers.IO) {
-            signUpRepository.signUp(email.value,username.value, password.value)
+            signUpRepository.signUp(email,username, password, success)
 
         }
     }
