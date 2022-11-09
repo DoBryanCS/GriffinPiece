@@ -7,5 +7,5 @@ data class Show(
     var imageUrl: String,
     var releaseDate: String,
     var genre: String,
-    var rating: Int
+    var rating: Float
 )

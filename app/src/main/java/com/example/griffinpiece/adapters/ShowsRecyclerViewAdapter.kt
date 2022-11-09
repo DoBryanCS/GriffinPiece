@@ -1,6 +1,7 @@
 package com.example.griffinpiece.adapters
 
 import android.annotation.SuppressLint
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,10 +29,13 @@ class ShowsRecyclerViewAdapter(private val datasetShows: MutableList<Show>) :
     override fun onBindViewHolder(holderShow: ShowViewHolder, position: Int) {
         holderShow.view.findViewById<TextView>(R.id.tvShow).text =
             this.datasetShows[position].title
+
         val imgShow = holderShow.view.findViewById<ImageView>(R.id.imgShow)
         Picasso.get().load(this.datasetShows[position].imageUrl).into(imgShow)
+
         holderShow.view.setOnClickListener {
             val id = bundleOf(Pair("id", datasetShows[position].id))
+            Log.i("id", id.toString())
             holderShow.view.findNavController().navigate(R.id.navigation_emission,id)
         }
 
