@@ -42,20 +42,22 @@ class AccountRepository(private val application: Application) {
         queue.add(r)
     }
 
-    fun changeEmail(email: String, currentPassword: String, success: MutableLiveData<Boolean>) {
+    fun changeEmail(currentPassword: String, newEmail: String, success: MutableLiveData<Boolean>) {
         val url = "$SRVURL/user/email"
 
         val queue = Volley.newRequestQueue(application)
         val jsonbody = JSONObject()
-        jsonbody.put("currentPassword", email)
-        jsonbody.put("email", email)
+        jsonbody.put("currentPassword", currentPassword)
+        jsonbody.put("email", newEmail)
 
         val request = object : JsonObjectRequest(
             Request.Method.PUT, url, jsonbody,
             Response.Listener {
+                success.value = true
                 Toast.makeText(application, "Changement de l'email avec succes!", Toast.LENGTH_SHORT).show()
             },
             Response.ErrorListener {
+                success.value = false
                 Toast.makeText(application, "Erreur durant le processus de mise a jour de l'email!" , Toast.LENGTH_SHORT).show()
             }
         ) {
