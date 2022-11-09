@@ -36,6 +36,7 @@ class EmissionPageFragment : Fragment() {
         val titleEmission = view.findViewById<TextView>(R.id.seasonTitle)
 
         val ratingBar = view.findViewById<RatingBar>(R.id.RatingBar)
+        val favoriteButton = view.findViewById<ImageView>(R.id.btnFavorite)
 
 
         this.rvEmissionSeasons.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL,false)
@@ -53,6 +54,10 @@ class EmissionPageFragment : Fragment() {
 
         emissionViewModel.datasetSeasons.observe(viewLifecycleOwner) {
             this.rvEmissionSeasons.adapter = SeasonsRecyclerViewAdapter(it)
+        }
+
+        emissionViewModel.isFavorite.observe(viewLifecycleOwner) {
+    
         }
 
 
