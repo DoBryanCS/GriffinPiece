@@ -14,23 +14,18 @@ import com.example.griffinpiece.models.Season
 import com.google.gson.Gson
 
 class SeasonRepository (private val application: Application) {
-    fun getSeason(detailsSeason:MutableLiveData<Season> ,seasonId: MutableLiveData<Int>, showId: MutableLiveData<Int>, title: MutableLiveData<String>, description: MutableLiveData<String>, imageUrl: MutableLiveData<String>, releaseDate: MutableLiveData<String>) {
+    fun getSeason(seasonId : Int, season: MutableLiveData<Season>) {
         val queue = Volley.newRequestQueue(application)
-        Log.i("id", seasonId.value.toString())
-        val url = SRVURL + "/season/${seasonId.value}"
+        Log.i("seasonId", seasonId.toString())
+        val url = SRVURL + "/season/${seasonId}"
 
         val request = StringRequest (
             Request.Method.GET, url ,
-            Response.Listener {
+            {
                 val gson = Gson()
-                detailsSeason.value = gson.fromJson(it, Season::class.java)
-                showId.value = detailsSeason.value?.showId
-                title.value = detailsSeason.value?.title
-                description.value = detailsSeason.value?.description
-                imageUrl.value = detailsSeason.value?.imageUrl
-                releaseDate.value = detailsSeason.value?.releaseDate
+                season.value = gson.fromJson(it, Season::class.java)
             },
-            Response.ErrorListener {
+            {
                 Log.e("Erreur", it.toString())
             }
         )
@@ -45,6 +40,7 @@ class SeasonRepository (private val application: Application) {
         val request= StringRequest(
             Request.Method.GET, url,
             Response.Listener {
+                Log.i("lol", it.toString())
                 val gson = Gson()
                 var arrayEpisodes = gson.fromJson(it, Array<Episode>::class.java)
                 datasetEpisodes.value = arrayEpisodes.toMutableList()

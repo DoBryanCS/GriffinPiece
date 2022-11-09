@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/imageV"
-        android:layout_width="415dp"
-        android:layout_height="374dp"
+        android:layout_width="735dp"
+        android:layout_height="414dp"
         android:background="@drawable/anime_crossover_wallpaper_preview"
         android:src="@drawable/background_fade"
         app:layout_constraintBottom_toTopOf="@+id/imageV1"
@@ -31,8 +31,8 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="301dp"
         android:layout_marginBottom="35dp"
+        android:drawableLeft="@drawable/icon"
         android:gravity="center"
         android:text="GriffinPiece"
         android:textColor="#FF5722"
@@ -40,9 +40,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/imageV1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:drawableLeft="@drawable/icon" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/sloganTv"
@@ -56,7 +54,6 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/btnLogin"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 

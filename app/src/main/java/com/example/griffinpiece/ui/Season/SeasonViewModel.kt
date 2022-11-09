@@ -4,24 +4,21 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.griffinpiece.models.Episode
 import com.example.griffinpiece.models.Season
 import com.example.griffinpiece.repositories.SeasonRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class SeasonViewModel (private val app: Application): AndroidViewModel(app) {
-    public var detailsSeason = MutableLiveData<Season>()
-    public var seasonId = MutableLiveData<Int>()
-    public var showId= MutableLiveData<Int>()
-    public var title = MutableLiveData<String>()
-    public var description = MutableLiveData<String>()
-    public var imageUrl = MutableLiveData<String>()
-    public var releaseDate =  MutableLiveData<String>()
-    public var datasetEpisode = MutableLiveData<MutableList<Episode>>()
+    var detailsSeason = MutableLiveData<Season>()
 
     private val seasonRepository =  SeasonRepository(app)
 
-    init {
-        seasonRepository.getSeason(detailsSeason,seasonId, showId, title, description, imageUrl, releaseDate)
-        seasonRepository.getEpisodes(seasonId, datasetEpisode)
+    fun getData(seasonId: Int) {
+        viewModelScope.launch(Dispatchers.IO) {
+            seasonRepository.getSeason(seasonId, detailsSeason)
+        }
     }
 }

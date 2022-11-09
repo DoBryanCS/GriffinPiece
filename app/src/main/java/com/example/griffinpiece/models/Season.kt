@@ -1,7 +1,7 @@
 package com.example.griffinpiece.models
 
 data class Season(
-    var seasonId: Int,
+    var id: Int,
     var showId: Int,
     var showTitle: String,
     var title: String,

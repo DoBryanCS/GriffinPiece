@@ -17,22 +17,15 @@ import com.google.gson.Gson
 
 class ShowRepository (private val application: Application) {
     fun getShowDetails(
-        id: MutableLiveData<Int>, details: MutableLiveData<Show>, title: MutableLiveData<String>, description: MutableLiveData<String>, imageUrl: MutableLiveData<String>,
-        releaseDate: MutableLiveData<String>, genre: MutableLiveData<String>, rating: MutableLiveData<Float>) {
-        val url = SRVURL + "/show/${id.value}"
+        id: Int, show :MutableLiveData<Show>) {
+        val url = SRVURL + "/show/${id}"
         val queue = Volley.newRequestQueue(application)
 
         val request = StringRequest(
             Request.Method.GET, url,
             {
                 val gson = Gson()
-                details.value  = gson.fromJson(it, Show::class.java)
-                title.value = details.value?.title
-                description.value = details.value?.description
-                imageUrl.value = details.value?.imageUrl
-                releaseDate.value = details.value?.releaseDate
-                genre.value = details.value?.genre
-                rating.value = details.value?.rating
+                show.value = gson.fromJson(it, Show::class.java)
             },
             {
                 Toast.makeText(application, "Erreur dans la requête pour afficher les details du show", Toast.LENGTH_SHORT).show()
@@ -43,26 +36,26 @@ class ShowRepository (private val application: Application) {
     }
 
 
-    fun getSeasons(showId: MutableLiveData<Int> ,datasetSeasons: MutableLiveData<MutableList<Season>>) {
-        val url = SRVURL + "/seasons/${showId.value}"
+    fun getSeasons(showId: Int ,datasetSeasons: MutableLiveData<MutableList<Season>>) {
+        val url = SRVURL + "/seasons/${showId}"
         val queue = Volley.newRequestQueue(application)
 
         val request = StringRequest(
             Request.Method.GET,url,
-            Response.Listener {
+            {
                 val gson = Gson()
                 val seasonsArray = gson.fromJson(it, Array<Season>::class.java)
                 datasetSeasons.value =seasonsArray.toMutableList()
             },
-            Response.ErrorListener {
+            {
                 Log.e("Erreur", it.toString())
             }
         )
         queue.add(request)
     }
 
-    fun getFavorite(id: MutableLiveData<Int>, isFavorite:MutableLiveData<Boolean>) {
-        var url = SRVURL + "/favorite/${id.value}"
+    fun getFavorite(id: Int, isFavorite:MutableLiveData<Boolean>) {
+        var url = SRVURL + "/favorite/${id}"
         val queue = Volley.newRequestQueue(application)
 
         val request = object: JsonObjectRequest (

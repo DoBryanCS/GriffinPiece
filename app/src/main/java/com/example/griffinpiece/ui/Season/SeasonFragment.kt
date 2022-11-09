@@ -2,6 +2,7 @@ package com.example.griffinpiece.ui.Season
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -26,14 +27,16 @@ class SeasonFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val seasonViewModel = ViewModelProvider(this).get(SeasonViewModel::class.java)
+
 
         val seasonImg = view.findViewById<ImageView>(R.id.seasonImg)
         val seasonTitle = view.findViewById<TextView>(R.id.seasonTitle)
         val showTitle = view.findViewById<TextView>(R.id.showTitle)
 
-        val seasonViewModel = ViewModelProvider(this).get(SeasonViewModel::class.java)
-        val seasonId = this.requireArguments().get("seasonId")
-        seasonViewModel.seasonId.value = seasonId as Int?
+        val seasonId = this.requireArguments().get("seasonId") as Int
+        seasonViewModel.getData(seasonId)
+        Log.i("season", seasonId.toString())
 
         seasonViewModel.detailsSeason.observe(viewLifecycleOwner) {
             Picasso.get().load(it.imageUrl).into(seasonImg)

@@ -15,16 +15,6 @@ import com.example.griffinpiece.R
 import com.example.griffinpiece.adapters.SeasonsRecyclerViewAdapter
 import com.squareup.picasso.Picasso
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [EmissionPageFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class EmissionPageFragment : Fragment() {
     private lateinit var rvEmissionSeasons: RecyclerView
 
@@ -40,7 +30,6 @@ class EmissionPageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val emissionViewModel = ViewModelProvider(this).get(EmissionViewModel::class.java)
         this.rvEmissionSeasons = view.findViewById<RecyclerView>(R.id.seasonEpisodes)
 
         val imgEpisode = view.findViewById<ImageView>(R.id.seasonImg)
@@ -51,12 +40,14 @@ class EmissionPageFragment : Fragment() {
 
         this.rvEmissionSeasons.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL,false)
 
-        val showid = this.requireArguments().get("id")
-        emissionViewModel.id.value = showid as Int?
+        val showid : Int = this.requireArguments().get("id") as Int
 
-        emissionViewModel.details.observe(/* owner = */ viewLifecycleOwner) {
+        val emissionViewModel = ViewModelProvider(this).get(EmissionViewModel::class.java)
+        emissionViewModel.getData(showid)
+
+        emissionViewModel.show.observe(viewLifecycleOwner) {
             Picasso.get().load(it.imageUrl).into(imgEpisode)
-            titleEmission.setText(it.title)
+            titleEmission.text = it.title
             ratingBar.rating = it.rating
         }
 
