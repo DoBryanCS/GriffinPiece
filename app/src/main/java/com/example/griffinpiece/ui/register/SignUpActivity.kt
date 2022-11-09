@@ -7,20 +7,13 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.ActionBar
 import androidx.lifecycle.ViewModelProvider
-import com.android.volley.Request
-import com.android.volley.Response
-import com.android.volley.toolbox.JsonObjectRequest
-import com.android.volley.toolbox.Volley
 import com.example.griffinpiece.R
 import com.example.griffinpiece.ui.login.LoginActivity
-import com.example.griffinpiece.ui.login.LoginViewModel
-import org.json.JSONObject
 
 class SignUpActivity : AppCompatActivity() {
     private lateinit var actionBar: ActionBar
@@ -40,31 +33,36 @@ class SignUpActivity : AppCompatActivity() {
         actionBar.setDisplayHomeAsUpEnabled(true)
         actionBar.setDisplayShowHomeEnabled(true)
 
-        var formEmail: EditText = findViewById(R.id.loginEmail)
-        var formUsername: EditText = findViewById(R.id.loginUsername)
-        var formPassword: EditText = findViewById(R.id.loginPassword)
-        var clickHere: TextView = findViewById(R.id.clickHereLogin)
+        val formEmail: EditText = findViewById(R.id.loginEmail)
+        val formUsername: EditText = findViewById(R.id.loginUsername)
+        val formPassword: EditText = findViewById(R.id.loginPassword)
+        val btnToLoginActivity: TextView = findViewById(R.id.clickHereLogin)
 
 
-        var btnCreateAccount: Button = findViewById(R.id.btnSignUp)
+        val btnCreateAccount: Button = findViewById(R.id.btnSignUp)
 
-        var intentLoginAccount = Intent(this, LoginActivity::class.java)
-        btnCreateAccount.setOnClickListener{
-            signUpViewModel.email.value = formEmail.text.toString()
-            signUpViewModel.username.value = formUsername.text.toString()
-            signUpViewModel.password.value = formPassword.text.toString()
-            signUpViewModel.signUp()
-            val sharedPreferences = getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)
-            val editor = sharedPreferences.edit()
-            editor.apply() {
-                putString("STRING_KEY", formEmail.text.toString())
-            }.apply()
-            this.startActivity(intentLoginAccount)
+        // intents
+        val intentLoginActivity = Intent(this, LoginActivity::class.java)
+
+        signUpViewModel.success.observe(this) {
+            if (it) {
+                val sharedPreferences = getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)
+                val editor = sharedPreferences.edit()
+                editor.apply() {
+                    putString("STRING_KEY", formEmail.text.toString())
+                }.apply()
+                this.startActivity(intentLoginActivity)
+            }
         }
 
 
-        clickHere.setOnClickListener{
-            this.startActivity(intentLoginAccount)
+        btnCreateAccount.setOnClickListener{
+            signUpViewModel.signUp(formEmail.text.toString(), formUsername.text.toString(), formPassword.text.toString())
+
+        }
+
+        btnToLoginActivity.setOnClickListener{
+            this.startActivity(intentLoginActivity)
         }
 
 

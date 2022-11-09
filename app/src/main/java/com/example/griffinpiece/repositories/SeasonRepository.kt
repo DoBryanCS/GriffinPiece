@@ -33,9 +33,9 @@ class SeasonRepository (private val application: Application) {
         queue.add(request)
     }
 
-    fun getEpisodes(seasonId: MutableLiveData<Int>, datasetEpisodes: MutableLiveData<MutableList<Episode>>) {
+    fun getEpisodes(seasonId: Int, datasetEpisodes: MutableLiveData<MutableList<Episode>>) {
         val queue = Volley.newRequestQueue(application)
-        val url = SRVURL + "/episodes/${seasonId.value}"
+        val url = SRVURL + "/episodes/${seasonId}"
 
         val request= StringRequest(
             Request.Method.GET, url,
