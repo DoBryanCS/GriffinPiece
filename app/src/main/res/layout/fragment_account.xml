@@ -7,10 +7,15 @@
     android:background="@color/black"
     tools:context=".ui.compte.AccountFragment">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <LinearLayout
         android:layout_width="344dp"
         android:layout_height="531dp"
         android:orientation="vertical"
+        android:layout_gravity="center_horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
@@ -104,4 +109,5 @@
             android:textColor="#212121" />
 
     </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

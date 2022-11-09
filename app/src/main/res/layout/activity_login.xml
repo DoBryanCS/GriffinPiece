@@ -7,96 +7,112 @@
     android:background="@color/black"
     tools:context=".ui.login.LoginActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="login"
-        android:textColor="@color/white"
-        android:layout_above="@id/textView"
-        style="@style/TextAppearance.MaterialComponents.Caption"/>
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="35dp"
-        android:text="GriffinPiece"
-        android:layout_centerHorizontal="true"
-        android:layout_above="@id/emailTil"
-        android:textColor="#FF5722"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:drawableLeft="@drawable/icon" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/emailTil"
-        android:layout_above="@id/passwordTil"
-        android:layout_marginBottom="10dp"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColorHint="@color/white"
-        app:boxBackgroundColor="#323131">
+        android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/loginEmail"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email"
-            android:inputType="textEmailAddress"
-            android:textColor="@color/white" />
+            android:orientation="vertical">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                style="@style/TextAppearance.MaterialComponents.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/textView"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:clipToPadding="false"
+                android:paddingTop="20dp"
+                android:text="login"
+                android:textColor="@color/white" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/passwordTil"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:textColorHint="@color/white"
-        app:boxBackgroundColor="#323131">
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/emailTil"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="35dp"
+                android:drawableLeft="@drawable/icon"
+                android:text="GriffinPiece"
+                android:textColor="#FF5722"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/loginPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Mot de passe"
-            android:inputType="textPassword"
-            android:textColor="@color/white" />
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/emailTil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/passwordTil"
+                android:layout_marginBottom="10dp"
+                android:textColorHint="@color/white"
+                app:boxBackgroundColor="#323131">
 
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/passwordTil"
-        android:layout_marginBottom="75sp"
-        android:backgroundTint="#FF5722"
-        android:text="@string/se_connecter"
-        android:textColor="@color/black" />
+                <EditText
+                    android:id="@+id/loginEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Email"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/white" />
 
-    <TextView
-        android:id="@+id/txtViewAccount"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/vous_n_avez_pas_de_compte"
-        android:layout_below="@+id/btnLogin"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/clickHereSignUp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txtViewAccount"
-        android:text="@string/cliquez_ici"
-        android:textAlignment="center"
-        android:textColor="@color/teal_700" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/passwordTil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColorHint="@color/white"
+                app:boxBackgroundColor="#323131">
+
+                <EditText
+                    android:id="@+id/loginPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Mot de passe"
+                    android:inputType="textPassword"
+                    android:textColor="@color/white" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/passwordTil"
+                android:layout_marginBottom="75sp"
+                android:backgroundTint="#FF5722"
+                android:text="@string/se_connecter"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/txtViewAccount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btnLogin"
+                android:text="@string/vous_n_avez_pas_de_compte"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/clickHereSignUp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtViewAccount"
+                android:text="@string/cliquez_ici"
+                android:textAlignment="center"
+                android:textColor="@color/teal_700" />
+
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>
 

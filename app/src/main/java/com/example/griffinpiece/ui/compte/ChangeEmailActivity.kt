@@ -6,6 +6,7 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -32,22 +33,32 @@ class ChangeEmailActivity : AppCompatActivity() {
         actionBar.setDisplayHomeAsUpEnabled(true)
         actionBar.setDisplayShowHomeEnabled(true)
 
-        var formCurrentEmail: EditText = findViewById(R.id.emailEt)
+        var formCurrentPassword: EditText = findViewById(R.id.passwordEt)
         var formNewEmail: EditText = findViewById(R.id.newemailEt)
         var formConfirmEmail: EditText = findViewById(R.id.confirmemailEt)
         var btnChangeEmail: Button = findViewById(R.id.changeEmail)
 
         val intentConnected = Intent(application, MainActivity::class.java)
+
+        changeEmailViewModel.success.observe(this) {
+            if (it) {
+                this.startActivity(intentConnected)
+            }
+            else {
+                Toast.makeText(this, "Erreur durant le processus de mise a jour du email!" , Toast.LENGTH_SHORT).show()
+            }
+        }
+
         btnChangeEmail.setOnClickListener {
-//            changeEmailViewModel.email.value = formNewEmail.text.toString()
-//            if (formCurrentEmail.text.toString() != changeEmailViewModel.userInfo.value?.email.toString()) {
-//                formCurrentEmail.error = "Email invalide!"
-//            } else if(formConfirmEmail.text.toString() != formNewEmail.text.toString()) {
-//                formConfirmEmail.error = "Les emails ne sont pas identiques!"
-//            } else {
-//                changeEmailViewModel.changeEmail()
-//                this.startActivity(intentConnected)
-//            }
+            val currentPassword : String = formCurrentPassword.text.toString()
+            val newEmail : String = formNewEmail.text.toString()
+            val newEmailConfirm : String = formConfirmEmail.text.toString()
+
+            if(newEmailConfirm != newEmail) {
+                formConfirmEmail.error = "Les emails ne sont pas identiques!"
+            } else {
+                this.changeEmailViewModel.changeEmail(currentPassword, newEmail)
+            }
         }
     }
 
