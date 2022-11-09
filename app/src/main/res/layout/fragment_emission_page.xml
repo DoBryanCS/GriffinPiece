@@ -28,18 +28,18 @@
 
                 <TextView
                     android:id="@+id/seasonTitle"
-                    android:layout_width="250dp"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_weight="0.3"
                     android:gravity="center"
                     android:text="TextView" />
 
                 <RelativeLayout
                     android:id="@+id/ratingShow"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:layout_weight="1"
+                    android:layout_weight="0.7"
                     android:gravity="center">
 
                     <RatingBar
@@ -47,9 +47,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:foregroundGravity="center"
+                        android:isIndicator="true"
                         android:numStars="5"
-                        tools:ignore="SpeakableTextPresentCheck"
-                        android:isIndicator="true">
+                        tools:ignore="SpeakableTextPresentCheck">
 
 
                     </RatingBar>
