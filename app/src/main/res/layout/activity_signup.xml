@@ -89,6 +89,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
+                android:layout_marginBottom="10dp"
                 android:textColorHint="@color/white"
                 app:boxBackgroundColor="#323131">
 
@@ -106,7 +107,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/passwordTil"
-                android:layout_marginBottom="75sp"
+                android:layout_marginBottom="40sp"
                 android:backgroundTint="#FF5722"
                 android:text="S'inscrire"
                 android:textColor="@color/black" />
@@ -128,6 +129,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/txtViewAccount"
                 android:text="@string/cliquez_ici"
+                android:clipToPadding="false"
+                android:paddingBottom="20dp"
                 android:textAlignment="center"
                 android:textColor="@color/teal_700" />
 

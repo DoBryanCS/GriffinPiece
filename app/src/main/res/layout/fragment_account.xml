@@ -106,6 +106,8 @@
             android:layout_height="wrap_content"
             android:backgroundTint="#FF5722"
             android:text="@string/se_d_connecter"
+            android:clipToPadding="false"
+            android:layout_marginBottom="20dp"
             android:textColor="#212121" />
 
     </LinearLayout>
