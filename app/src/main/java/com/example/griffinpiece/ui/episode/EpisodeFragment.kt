@@ -23,10 +23,10 @@ class EpisodeFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_episode_page, container, false)
     }
 
-    override fun onViewCreated(view: View, savedInstaceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        val episodeViewModel = ViewModelProvider(this).get(EpisodeViewModel::class.java)
-
-
-    }
+//    override fun onViewCreated(view: View, savedInstaceState: Bundle?) {
+//        super.onViewCreated(view, savedInstanceState)
+//        val episodeViewModel = ViewModelProvider(this).get(EpisodeViewModel::class.java)
+//
+//
+//    }
 }

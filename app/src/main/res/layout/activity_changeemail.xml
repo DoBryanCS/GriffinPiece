@@ -103,6 +103,8 @@
         android:layout_marginTop="10dp"
         android:backgroundTint="#FF5722"
         android:text="Changer l'email"
+        android:clipToPadding="false"
+        android:layout_marginBottom="20dp"
         android:textColor="@color/black" />
         </LinearLayout>
     </ScrollView>
