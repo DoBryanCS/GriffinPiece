@@ -75,8 +75,8 @@ class ShowRepository (private val application: Application) {
         queue.add(request)
         }
 
-    fun deleteFavorite(id: MutableLiveData<Int>, isFavorite: MutableLiveData<Boolean>) {
-        val url =  SRVURL + "/favorite/${id.value}"
+    fun deleteFavorite(id: Int, isFavorite: MutableLiveData<Boolean>) {
+        val url =  SRVURL + "/favorite/${id}"
         val queue = Volley.newRequestQueue(application)
         val request = object :StringRequest (
             Request.Method.DELETE, url,
@@ -89,6 +89,31 @@ class ShowRepository (private val application: Application) {
                 Toast.makeText(application, it.toString(), Toast.LENGTH_SHORT).show()
                 Log.i("Erreur", it.toString())
             },
+        ){
+            override fun getHeaders(): MutableMap<String, String> {
+                val headerMap = mutableMapOf<String, String>()
+                headerMap.put("Content-Type", "application/json")
+                headerMap.put("Authorization", "Bearer ${TOKEN}")
+                return headerMap
+            }
+        }
+        queue.add(request)
+    }
+
+    fun addFavorite(id: Int, isFavorite: MutableLiveData<Boolean>) {
+        val url = SRVURL + "/favorite/${id}"
+
+        val queue = Volley.newRequestQueue(application)
+
+        val request= object: StringRequest(
+            Request.Method.POST, url,
+            Response.Listener {
+                isFavorite.value = true
+                Toast.makeText(application, it.toString(), Toast.LENGTH_SHORT).show()
+            },
+            Response.ErrorListener {
+
+            }
         ){
             override fun getHeaders(): MutableMap<String, String> {
                 val headerMap = mutableMapOf<String, String>()
