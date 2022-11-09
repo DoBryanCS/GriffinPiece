@@ -26,7 +26,10 @@
         tools:targetApi="31">
 
         <activity
-            android:name=".ui.compte.AccountPage"
+            android:name=".ui.compte.ChangeEmailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.compte.ChangePasswordActivity"
             android:exported="false" />
         <activity
             android:name=".ui.login.LoginActivity"
