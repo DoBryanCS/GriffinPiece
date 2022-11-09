@@ -10,12 +10,11 @@ import kotlinx.coroutines.launch
 
 class LoginViewModel (val app: Application) : AndroidViewModel(app){
     val loginRepository = LoginRepository(app)
-    val email = MutableLiveData<String>()
-    val password = MutableLiveData<String>()
+    var success = MutableLiveData<Boolean>()
 
-    fun login() {
+    fun login(email: String, password: String) {
         viewModelScope.launch(Dispatchers.IO) {
-            loginRepository.login(email.value, password.value)
+            loginRepository.login(email, password, success)
         }
     }
 }

@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Intent
 import android.util.Log
 import android.widget.Toast
+import androidx.lifecycle.MutableLiveData
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
@@ -14,10 +15,7 @@ import com.example.griffinpiece.MainActivity.Companion.TOKEN
 import org.json.JSONObject
 
 class LoginRepository (private val application: Application){
-    fun login(email: String?, password:String?) {
-
-
-
+    fun login(email: String, password:String, success:MutableLiveData<Boolean>) {
         val queue = Volley.newRequestQueue(application)
 
         val url = SRVURL + "/auth/login"
@@ -28,11 +26,13 @@ class LoginRepository (private val application: Application){
 
         val request = JsonObjectRequest(
             Request.Method.POST, url, jsonbody,
-            Response.Listener{
+            {
+                success.value = true
                 TOKEN = it.getString("token")
 
             },
-            Response.ErrorListener {
+            {
+                success.value = false
                 Log.e("Erreur!", it.toString())
             }
         )
