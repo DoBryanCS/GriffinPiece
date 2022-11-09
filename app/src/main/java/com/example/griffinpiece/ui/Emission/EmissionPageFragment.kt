@@ -1,6 +1,7 @@
 package com.example.griffinpiece.ui.Emission
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -39,12 +40,22 @@ class EmissionPageFragment : Fragment() {
         val favoriteButton = view.findViewById<ImageView>(R.id.btnFavorite)
 
 
+
         this.rvEmissionSeasons.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL,false)
 
         val showid : Int = this.requireArguments().get("id") as Int
 
         val emissionViewModel = ViewModelProvider(this).get(EmissionViewModel::class.java)
         emissionViewModel.getData(showid)
+
+
+        favoriteButton.setOnClickListener {
+            if (emissionViewModel.isFavorite.value == true) {
+                emissionViewModel.deleteFavorite(showid)
+            } else {
+                emissionViewModel.addFavorite(showid)
+            }
+        }
 
         emissionViewModel.show.observe(viewLifecycleOwner) {
             Picasso.get().load(it.imageUrl).into(imgEpisode)
@@ -56,8 +67,18 @@ class EmissionPageFragment : Fragment() {
             this.rvEmissionSeasons.adapter = SeasonsRecyclerViewAdapter(it)
         }
 
+
+        val heartFavorite = resources.getIdentifier("heart_isfavorite", "drawable", context?.packageName)
+        val heartisNotFavorite = resources.getIdentifier("heart_white_notfavorite", "drawable", context?.packageName)
+
+
+
         emissionViewModel.isFavorite.observe(viewLifecycleOwner) {
-    
+            if (it == true) {
+                favoriteButton.setImageDrawable(resources.getDrawable(heartFavorite))
+            } else {
+                favoriteButton.setImageDrawable(resources.getDrawable(heartisNotFavorite))
+            }
         }
 
 
