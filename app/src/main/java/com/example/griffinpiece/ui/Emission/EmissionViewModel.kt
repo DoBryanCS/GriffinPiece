@@ -27,4 +27,15 @@ class EmissionViewModel(private val app: Application): AndroidViewModel(app) {
             showRepository.getFavorite(showId, isFavorite)
         }
     }
+
+    fun addFavorite(showId: Int) {
+        viewModelScope.launch(Dispatchers.IO) {
+            showRepository.addFavorite(showId, isFavorite)
+        }
+    }
+    fun deleteFavorite(showId: Int) {
+        viewModelScope.launch(Dispatchers.IO) {
+            showRepository.deleteFavorite(showId, isFavorite)
+        }
+    }
 }
