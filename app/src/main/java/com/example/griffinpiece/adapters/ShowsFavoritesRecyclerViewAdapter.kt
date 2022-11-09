@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.os.bundleOf
@@ -11,9 +12,10 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.griffinpiece.R
 import com.example.griffinpiece.models.Show
+import com.example.griffinpiece.ui.favori.FavoritesViewModel
 import com.squareup.picasso.Picasso
 
-class ShowsFavoritesRecyclerViewAdapter(private val datasetShows: MutableList<Show>) :
+class ShowsFavoritesRecyclerViewAdapter(private val datasetShows: MutableList<Show>, val favoritesViewModel: FavoritesViewModel) :
     RecyclerView.Adapter<ShowsFavoritesRecyclerViewAdapter.ShowViewHolder>() {
 
     class ShowViewHolder(val view: View) : RecyclerView.ViewHolder(view)
@@ -33,6 +35,16 @@ class ShowsFavoritesRecyclerViewAdapter(private val datasetShows: MutableList<Sh
         holderShow.view.setOnClickListener {
             val id = bundleOf(Pair("id", datasetShows[position].id))
             holderShow.view.findNavController().navigate(R.id.navigation_emission,id)
+        }
+        val btnFavorite = holderShow.view.findViewById<Button>(R.id.btnFvorite)
+        btnFavorite.setOnClickListener {
+            val id = datasetShows[position].id
+            this.favoritesViewModel.id = id
+            println(this.favoritesViewModel.id)
+            this.favoritesViewModel.delete()
+
+            datasetShows.removeAt(position)
+            this.notifyDataSetChanged()
         }
 
     }

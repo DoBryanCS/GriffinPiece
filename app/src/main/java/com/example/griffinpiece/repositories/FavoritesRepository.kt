@@ -68,7 +68,7 @@ class FavoritesRepository(private val application: Application) {
         val queue = Volley.newRequestQueue(application)
         val r = object : StringRequest(
             Request.Method.POST,
-            "${SRVURL}/favorite?tvshowId=$id",
+            "${SRVURL}/favorite/$id",
             {
                 Log.d("Response", it.toString())
             },
@@ -91,7 +91,7 @@ class FavoritesRepository(private val application: Application) {
         val queue = Volley.newRequestQueue(application)
         val r = object : StringRequest(
             Request.Method.DELETE,
-            "${SRVURL}/favorite?tvshowId=$id",
+            "${SRVURL}/favorite/$id",
             {
                 Log.d("Response", it.toString())
             },

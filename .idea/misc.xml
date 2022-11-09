@@ -30,17 +30,24 @@
         <entry key="..\:/Users/Bryan/AndroidStudioProjects/frontend_android/app/src/main/res/drawable/bottom_navigation_selector.xml" value="0.1" />
         <entry key="..\:/Users/Bryan/AndroidStudioProjects/frontend_android/app/src/main/res/drawable/fade_image.xml" value="0.1" />
         <entry key="..\:/Users/Bryan/AndroidStudioProjects/frontend_android/app/src/main/res/drawable/fade_image_top.xml" value="0.1" />
+        <entry key="..\:/Users/Bryan/AndroidStudioProjects/frontend_android/app/src/main/res/layout-land/activity_changeemail.xml" value="0.1" />
+        <entry key="..\:/Users/Bryan/AndroidStudioProjects/frontend_android/app/src/main/res/layout-land/activity_changepassword.xml" value="0.16843033509700175" />
+        <entry key="..\:/Users/Bryan/AndroidStudioProjects/frontend_android/app/src/main/res/layout-land/activity_firstpage.xml" value="0.16843033509700175" />
+        <entry key="..\:/Users/Bryan/AndroidStudioProjects/frontend_android/app/src/main/res/layout-land/activity_login.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/Bryan/AndroidStudioProjects/frontend_android/app/src/main/res/layout-land/activity_signup.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/Bryan/AndroidStudioProjects/frontend_android/app/src/main/res/layout-land/fragment_account.xml" value="0.1" />
         <entry key="..\:/Users/Bryan/AndroidStudioProjects/frontend_android/app/src/main/res/layout/activity_account_page.xml" value="0.2" />
-        <entry key="..\:/Users/Bryan/AndroidStudioProjects/frontend_android/app/src/main/res/layout/activity_changeemail.xml" value="0.13333333333333333" />
-        <entry key="..\:/Users/Bryan/AndroidStudioProjects/frontend_android/app/src/main/res/layout/activity_changepassword.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/Bryan/AndroidStudioProjects/frontend_android/app/src/main/res/layout/activity_changeemail.xml" value="0.22" />
+        <entry key="..\:/Users/Bryan/AndroidStudioProjects/frontend_android/app/src/main/res/layout/activity_changepassword.xml" value="0.22" />
         <entry key="..\:/Users/Bryan/AndroidStudioProjects/frontend_android/app/src/main/res/layout/activity_firstpage.xml" value="0.1" />
         <entry key="..\:/Users/Bryan/AndroidStudioProjects/frontend_android/app/src/main/res/layout/activity_forgotpassword.xml" value="0.22" />
         <entry key="..\:/Users/Bryan/AndroidStudioProjects/frontend_android/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/Users/Bryan/AndroidStudioProjects/frontend_android/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/Users/Bryan/AndroidStudioProjects/frontend_android/app/src/main/res/layout/activity_signup.xml" value="0.1" />
+        <entry key="..\:/Users/Bryan/AndroidStudioProjects/frontend_android/app/src/main/res/layout/activity_signup.xml" value="0.22" />
+        <entry key="..\:/Users/Bryan/AndroidStudioProjects/frontend_android/app/src/main/res/layout/c.xml" value="0.19895833333333332" />
         <entry key="..\:/Users/Bryan/AndroidStudioProjects/frontend_android/app/src/main/res/layout/fagment_favorites_item.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/Bryan/AndroidStudioProjects/frontend_android/app/src/main/res/layout/fragment_account.xml" value="0.19635416666666666" />
-        <entry key="..\:/Users/Bryan/AndroidStudioProjects/frontend_android/app/src/main/res/layout/fragment_favorites.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/Bryan/AndroidStudioProjects/frontend_android/app/src/main/res/layout/fragment_favorites.xml" value="0.1" />
         <entry key="..\:/Users/Bryan/AndroidStudioProjects/frontend_android/app/src/main/res/layout/fragment_first.xml" value="0.1" />
         <entry key="..\:/Users/Bryan/AndroidStudioProjects/frontend_android/app/src/main/res/layout/fragment_fourth.xml" value="0.2" />
         <entry key="..\:/Users/Bryan/AndroidStudioProjects/frontend_android/app/src/main/res/layout/fragment_second.xml" value="0.2" />

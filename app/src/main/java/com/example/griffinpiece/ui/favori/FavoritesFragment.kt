@@ -28,13 +28,13 @@ class FavoritesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         this.rvListeShow = view.findViewById(R.id.rvListeShows)
-        this.favoritesViewModel =
+        favoritesViewModel =
             ViewModelProvider(this).get(FavoritesViewModel::class.java)
         this.rvListeShow.layoutManager = LinearLayoutManager(activity)
+        this.favoritesViewModel.shows()
 
         favoritesViewModel.shows.observe(viewLifecycleOwner) {
-            this.rvListeShow.adapter = ShowsFavoritesRecyclerViewAdapter(it)
-
+            this.rvListeShow.adapter = ShowsFavoritesRecyclerViewAdapter(it, favoritesViewModel)
         }
     }
 }

@@ -4,40 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
     android:background="@color/black"
     tools:context=".ui.compte.ChangeEmailActivity">
-
-
-    <TextView
-        android:id="@+id/titleLabelTv"
-        style="@style/TextAppearance.MaterialComponents.Headline4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="Changer l'email"
-        android:textColor="#FF5722"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:drawableLeft="@drawable/icon"/>
-
-    <TextView
-        android:id="@+id/titleLabelTvmini"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="Change email"
-        android:textColor="@color/white"
-        android:layout_below="@+id/titleLabelTv"
-        style="@style/TextAppearance.MaterialComponents.Caption"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/emailTil"
         android:layout_above="@id/newemailTil"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="1dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColorHint="@color/white"
@@ -57,7 +30,7 @@
         android:layout_above="@id/confirmemailTil"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="1dp"
         android:layout_centerInParent="true"
         android:textColorHint="@color/white"
         app:boxBackgroundColor="#323131">
@@ -91,7 +64,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/confirmemailTil"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="1dp"
         android:backgroundTint="#FF5722"
         android:text="Changer l'email"
         android:textColor="@color/black" />
