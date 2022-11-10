@@ -2,6 +2,7 @@ package com.example.griffinpiece.repositories
 
 import android.app.Application
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
@@ -93,6 +94,7 @@ class FavoritesRepository(private val application: Application) {
             Request.Method.DELETE,
             "${SRVURL}/favorite/$id",
             {
+                Toast.makeText(application, "L'émission a été enlevée de vos favoris!", Toast.LENGTH_SHORT).show()
                 Log.d("Response", it.toString())
             },
             {

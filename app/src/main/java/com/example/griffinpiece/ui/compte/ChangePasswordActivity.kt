@@ -1,5 +1,6 @@
 package com.example.griffinpiece.ui.compte
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -8,6 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
@@ -61,7 +63,21 @@ class ChangePasswordActivity : AppCompatActivity() {
             if(newPasswordConfirm != newPassword) {
                 formConfirmPassword.error = "Les passwords ne sont pas identiques!"
             } else {
-                this.changePasswordViewModel.changePassword(currentPassword, newPassword)
+                val builder = AlertDialog.Builder(this)
+                builder.setMessage("Etes-vous sur de vouloir changer le mot de passe?")
+                    .setCancelable(false)
+                    .setPositiveButton("Oui") { dialog, which ->
+                        this.changePasswordViewModel.changePassword(currentPassword, newPassword)
+                    }
+                    .setNegativeButton("Non") { dialog, which ->
+                        dialog.dismiss()
+                    }
+                val alert = builder.create()
+                alert.show()
+                val nbutton = alert.getButton(DialogInterface.BUTTON_NEGATIVE)
+                nbutton.setTextColor(Color.parseColor("#FF5722"))
+                val pbutton = alert.getButton(DialogInterface.BUTTON_POSITIVE)
+                pbutton.setTextColor(Color.parseColor("#FF5722"))
             }
         }
 

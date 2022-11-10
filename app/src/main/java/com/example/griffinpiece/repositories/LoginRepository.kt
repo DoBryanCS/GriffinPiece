@@ -27,7 +27,7 @@ class LoginRepository (private val application: Application){
         val request = JsonObjectRequest(
             Request.Method.POST, url, jsonbody,
             {
-                Toast.makeText(application, "Vous etes connecté en tant que ${email}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(application, "Vous etes connecté avec l'email: ${email}", Toast.LENGTH_SHORT).show()
                 success.value = true
                 TOKEN = it.getString("token")
 

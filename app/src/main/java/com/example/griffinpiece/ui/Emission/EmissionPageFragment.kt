@@ -1,22 +1,25 @@
 package com.example.griffinpiece.ui.Emission
 
+import android.content.DialogInterface
+import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.griffinpiece.IOnBackPressed
 import com.example.griffinpiece.R
 import com.example.griffinpiece.adapters.SeasonsRecyclerViewAdapter
 import com.squareup.picasso.Picasso
 
-class EmissionPageFragment : Fragment() {
+class EmissionPageFragment : Fragment(), IOnBackPressed {
     private lateinit var rvEmissionSeasons: RecyclerView
 
     override fun onCreateView(inflater: LayoutInflater,
@@ -51,9 +54,37 @@ class EmissionPageFragment : Fragment() {
 
         favoriteButton.setOnClickListener {
             if (emissionViewModel.isFavorite.value == true) {
-                emissionViewModel.deleteFavorite(showid)
+                val builder = AlertDialog.Builder(view.context)
+                builder.setMessage("Enlever l'émission des favoris?")
+                    .setCancelable(false)
+                    .setPositiveButton("Oui") { dialog, which ->
+                        emissionViewModel.deleteFavorite(showid)
+                    }
+                    .setNegativeButton("Non") { dialog, which ->
+                        dialog.dismiss()
+                    }
+                val alert = builder.create()
+                alert.show()
+                val nbutton = alert.getButton(DialogInterface.BUTTON_NEGATIVE)
+                nbutton.setTextColor(Color.parseColor("#FF5722"))
+                val pbutton = alert.getButton(DialogInterface.BUTTON_POSITIVE)
+                pbutton.setTextColor(Color.parseColor("#FF5722"))
             } else {
-                emissionViewModel.addFavorite(showid)
+                val builder = AlertDialog.Builder(view.context)
+                builder.setMessage("Ajouter l'émission aux favoris?")
+                    .setCancelable(false)
+                    .setPositiveButton("Oui") { dialog, which ->
+                        emissionViewModel.addFavorite(showid)
+                    }
+                    .setNegativeButton("Non") { dialog, which ->
+                        dialog.dismiss()
+                    }
+                val alert = builder.create()
+                alert.show()
+                val nbutton = alert.getButton(DialogInterface.BUTTON_NEGATIVE)
+                nbutton.setTextColor(Color.parseColor("#FF5722"))
+                val pbutton = alert.getButton(DialogInterface.BUTTON_POSITIVE)
+                pbutton.setTextColor(Color.parseColor("#FF5722"))
             }
         }
 
@@ -81,9 +112,7 @@ class EmissionPageFragment : Fragment() {
             }
         }
 
-
-
-
-
     }
+    override fun onBackPressed() {}
+
 }

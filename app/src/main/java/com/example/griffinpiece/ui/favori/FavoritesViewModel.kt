@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 @Suppress("RedundantVisibilityModifier")
 class FavoritesViewModel(val app: Application) : AndroidViewModel(app) {
     public var shows: MutableLiveData<MutableList<Show>> = MutableLiveData(mutableListOf())
-    var favoritesRepository = FavoritesRepository(getApplication())
+    var favoritesRepository = FavoritesRepository(app)
     var id = 0
 
     init {

@@ -32,4 +32,7 @@ class FirstPageActivity : AppCompatActivity() {
             startActivity(Intent(this, SignUpActivity::class.java))
         }
     }
+
+    override fun onBackPressed() {
+    }
 }

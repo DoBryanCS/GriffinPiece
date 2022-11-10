@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,6 +15,7 @@ import com.example.griffinpiece.adapters.ShowsFavoritesRecyclerViewAdapter
 class FavoritesFragment : Fragment() {
 
     private lateinit var rvListeShow: RecyclerView
+    private lateinit var tvLoadingFavoris: TextView
 
     private lateinit var favoritesViewModel: FavoritesViewModel
 
@@ -27,6 +29,7 @@ class FavoritesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        this.tvLoadingFavoris = view.findViewById(R.id.tvLoadingFavoris)
         this.rvListeShow = view.findViewById(R.id.rvListeShows)
         favoritesViewModel =
             ViewModelProvider(this).get(FavoritesViewModel::class.java)
@@ -34,7 +37,15 @@ class FavoritesFragment : Fragment() {
         this.favoritesViewModel.shows()
 
         favoritesViewModel.shows.observe(viewLifecycleOwner) {
-            this.rvListeShow.adapter = ShowsFavoritesRecyclerViewAdapter(it, favoritesViewModel)
+            if(it.toString() == "[]") {
+                this.rvListeShow.visibility = View.GONE
+                this.tvLoadingFavoris.visibility = View.VISIBLE
+                println(this.tvLoadingFavoris.text.toString())
+            } else {
+                this.rvListeShow.adapter = ShowsFavoritesRecyclerViewAdapter(it, favoritesViewModel)
+                this.rvListeShow.visibility = View.VISIBLE
+                this.tvLoadingFavoris.visibility = View.GONE
+            }
         }
     }
 }

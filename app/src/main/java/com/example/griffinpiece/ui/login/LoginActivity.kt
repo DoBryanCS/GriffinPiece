@@ -58,6 +58,11 @@ class LoginActivity : AppCompatActivity() {
 
         loginViewModel.success.observe(this) {
             if (it){
+                val sharedPreferences = getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)
+                val editor = sharedPreferences.edit()
+                editor.apply() {
+                    putString("STRING_KEY", loginEmail.text.toString())
+                }.apply()
                 this.startActivity(intentConnected)
             }
             else {

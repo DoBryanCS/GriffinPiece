@@ -56,4 +56,7 @@ class MainActivity : AppCompatActivity() {
         }
         return super.onSupportNavigateUp()
     }
+
+    override fun onBackPressed() {
+    }
 }

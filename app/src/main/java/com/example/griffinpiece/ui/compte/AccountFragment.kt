@@ -7,9 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
+import com.example.griffinpiece.FirstPageActivity
+import com.example.griffinpiece.MainActivity
+import com.example.griffinpiece.MainActivity.Companion.TOKEN
 import com.example.griffinpiece.R
 import com.example.griffinpiece.ui.login.LoginActivity
 
@@ -17,6 +21,7 @@ class AccountFragment : Fragment() {
 
     private lateinit var btnChangeEmail: Button
     private lateinit var btnChangePassword: Button
+    private lateinit var btnDeconnexion: Button
     private lateinit var tvUsername: TextView
     private lateinit var accountViewModel: AccountViewModel
 
@@ -34,6 +39,8 @@ class AccountFragment : Fragment() {
         btnChangeEmail = view.findViewById(R.id.btnChangeEmail)
         tvUsername = view.findViewById(R.id.txtViewUsername)
         btnChangePassword = view.findViewById(R.id.btnChangePassword)
+        btnDeconnexion = view.findViewById(R.id.btnDisconnect)
+        val intentSignOut = Intent(view.context, FirstPageActivity::class.java)
 
         accountViewModel.userInfo.observe(viewLifecycleOwner) {
             tvUsername.setText(accountViewModel.userInfo.value?.username.toString())
@@ -46,6 +53,15 @@ class AccountFragment : Fragment() {
         btnChangePassword.setOnClickListener {
             val intent = Intent (getActivity(), ChangePasswordActivity::class.java)
             getActivity()?.startActivity(intent)
+        }
+        btnDeconnexion.setOnClickListener {
+            Toast.makeText(
+                view.context,
+                "Déconnexion réussite!",
+                Toast.LENGTH_SHORT
+            ).show()
+            TOKEN = ""
+            this.startActivity(intentSignOut)
         }
     }
 
