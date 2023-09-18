@@ -16,6 +16,9 @@
     <li>
       <a href="#Pages-de-lapplication">Pages de l'application</a>
     </li>
+    <li>
+      <a href="#Contributeurs">Contributeurs</a>
+    </li>
   </ol>
 </details>
 
@@ -68,6 +71,15 @@ Voici les technologies et les outils utilisés pour le développement de ce proj
     <img src="https://github.com/DoBryanCS/GriffinPiece/assets/111463691/522f1bf3-1d5f-455d-8461-59b4b2c14808" name="image-name">
     <img src="https://github.com/DoBryanCS/GriffinPiece/assets/111463691/1ec4bab1-708a-445d-bb98-82044314469d" name="image-name">
   </details>
+
+  <p align="right">(<a href="#readme-top">Retour en haut</a>)</p>
+
+  ## Contributeurs
+
+  * Do Bryan
+  * Jade Chalhoub
+  * Francis Mathieu-Gosselin
+  * Mathieu Diard
 
   <p align="right">(<a href="#readme-top">Retour en haut</a>)</p>
 
