@@ -1,0 +1,535 @@
+openapi: '3.0.0'
+info:
+  version: 1.0.0
+  title: Pokemons API
+paths:
+  /pokemons:
+    get:
+      description: Liste des pokemons
+      responses:
+        '200':
+          description: Liste des pokemons
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/pokemon'
+  /habitats:
+    get:
+      description: Liste des habitats
+      responses:
+        '200':
+          description: Liste des habitats
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/habitat'
+              example:
+                - habitatId: 2
+                  name: Cave
+                - habitatId: 3
+                  name: Forest
+                - habitatId: 4
+                  name: Grassland
+  /poketypes:
+    get:
+      description: Liste des poketypes
+      responses:
+        '200':
+          description: Liste des poketypes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/poketype'
+              example:
+                - poketypeId: 1
+                  name: Bug
+                - poketypeId: 2
+                  name: Electric
+                - poketypeId: 3
+                  name: Fighting
+  /species:
+    get:
+      description: Liste des species
+      responses:
+        '200':
+          description: Liste des species
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/species'
+              example:
+                - speciesId: 12
+                  name: Ball
+                - speciesId: 13
+                  name: Balloon
+                - speciesId: 18
+                  name: Bat
+  /pokemon:
+    get:
+      description: Pokemon dont le pokemonId est envoyé en paramètre
+      parameters:
+        - in: query
+          name: pokemonId
+          schema:
+            type: integer
+          required: true
+          description: pokemonId du Pokemon
+      responses:
+        '200':
+          description: Les données du pokemon est retourné
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: '#/components/schemas/detailspokemon'
+  /auth/token:
+    post:
+      summary: Obtenir un jeton d'authentification
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TokenCreationPayload'
+      responses:
+        '200':
+          description: Le jeton
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenCreationResponse'
+        '401':
+          description: Non autorisé
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuatreCentUn'
+  /auth/register/:
+    post:
+      summary: Route pour créer un utilisateur
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserCreationPayload'
+      responses:
+        '201':
+          description: La réponse lorsque l'utilisateur est créé.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserCreationResponse'
+        '400':
+          description: Une erreur s'est produite pendant le insert
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+  /favorites:
+    get:
+      security:
+        - bearerAuth: []
+      summary: Retourne la liste des pokemons favoris de l'utilisateur
+      responses:
+        '200':
+          description: Liste des pokemons favoris de l'utilisateur
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/pokemon'
+        '401':
+          description: Not authorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuatreCentUn'
+        '404':
+          description: L'utilisateur n'existe pas
+          content:
+            application/json:
+              schema:
+                  $ref: '#/components/schemas/ErrorMessage'
+  /favorite:
+    get:
+      security:
+        - bearerAuth: [ ]
+      summary: Retourne un json indiquant si le pokemon est dans les favoris de l'utilisateur
+      parameters:
+        - in: query
+          name: pokemonId
+          schema:
+            type: integer
+          required: true
+          description: pokemonId du Pokemon
+      responses:
+        '200':
+          description: isFavorite est true lorsque le pokemon est dans les favoris de l'utilisateur
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: '#/components/schemas/isfavorite'
+        '400':
+          description: pokemonId n'a pas été spécifié
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '401':
+          description: Not authorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuatreCentUn'
+        '404':
+          description: L'utilisateur n'existe pas
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+    post:
+      security:
+        - bearerAuth: []
+      summary: Ajoute un pokemon au favoris de l'utilisateur
+      parameters:
+        - in: query
+          name: pokemonId
+          schema:
+            type: integer
+          required: true
+          description: pokemonId du Pokemon
+      responses:
+        '200':
+          description: Le pokemon a été ajouté aux favoris de l'utilisateur
+        '400':
+          description: Le pokemon n'a pas été ajouté aux favoris de l'utilisateur
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '401':
+          description: Not authorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuatreCentUn'
+        '404':
+          description: L'utilisateur n'existe pas
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+    delete:
+      security:
+        - bearerAuth: []
+      summary: Supprime un pokemon aux favoris de l'utilisateur
+      parameters:
+        - in: query
+          name: pokemonId
+          schema:
+            type: integer
+          required: true
+          description: pokemonId du Pokemon à retirer
+      responses:
+        '200':
+          description: Le pokemon a été supprimé des favoris de l'utilisateur
+        '400':
+          description: Le pokemon n'a pas été supprimé aux favoris de l'utilisateur
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '401':
+          description: Not authorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuatreCentUn'
+        '404':
+          description: L'utilisateur n'existe pas
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+components:
+  securitySchemes:
+     bearerAuth:            # arbitrary name for the security scheme
+      type: http
+      scheme: bearer
+      bearerFormat: JWT    # optional, arbitrary value for documentation purposes
+  schemas:
+    TokenCreationPayload:
+      type: object
+      required:
+        - email
+        - password
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+      example:
+        email: e1234567@site.com
+        password: e1234567
+    TokenCreationResponse:
+      type: object
+      required:
+        - token
+      properties:
+        token:
+          type: string
+      example:
+        token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOjIsIm5hbWUiOiJNYXJpZSBDdXJpZSIsImVtYWlsIjoibWFjdXJpZUBzY2llbmNlLmNvbSIsImlhdCI6MTYxOTIyNjkxNn0.Nn0SP4ZzW4jaOu_Q47Cq-NPm545zfxJmY7ww7GWyJL0'
+    ErrorMessage:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          type: string
+      example:
+        message: "Un message d''erreur descriptif."
+    QuatreCentUn:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          type: string
+      example:
+        message: "Not Authorized.  Un message d''erreur descriptif."
+    UserCreationPayload:
+      type: object
+      required:
+        - email
+        - password
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+      example:
+        email: e1234567@site.com
+        password: e1234567
+    UserCreationResponse:
+      type: object
+      required:
+        - userId
+        - email
+      properties:
+        userId:
+          type: number
+        email:
+          type: string
+      example:
+        userId: 1
+        email: e1234567@site.com
+    User:
+      type: object
+      required:
+        - user
+      properties:
+        user:
+          type: object
+          required:
+            - userId
+            - email
+          properties:
+            userId:
+              type: number
+            email:
+              type: string
+          example:
+            userId: 1
+            email: e1234567@site.com
+    species:
+      type: object
+      required:
+        - speciesId
+        - name
+      properties:
+        speciesId:
+          type: number
+        name:
+          type: string
+      example:
+        speciesId: 12
+        name: Ball
+    poketype:
+      type: object
+      required:
+        - poketypeId
+        - name
+      properties:
+        poketypeId:
+          type: number
+        name:
+          type: string
+      example:
+        poketypeId: 4
+        name: Electric
+    habitat:
+      type: object
+      required:
+        - habitatId
+        - name
+      properties:
+        habitatId:
+          type: number
+        name:
+          type: string
+      example:
+        habitatId: 4
+        name: 'Grassland'
+    pokemon:
+      type: object
+      required:
+        - pokemonId
+        - name
+        - color
+        - thumbURL
+        - imgURL
+        - cryURL
+        - habitat
+        - species
+        - poketypes
+      properties:
+        pokemonId:
+          type: number
+        name:
+          type: string
+        color:
+          type: string
+        thumbURL:
+          type: string
+        imgURL:
+          type: string
+        cryURL:
+          type: string
+        habitat:
+          type: object
+          $ref: '#/components/schemas/habitat'
+        species:
+          type: object
+          $ref: '#/components/schemas/species'
+        poketypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/poketype'
+      example:
+        pokemonId: 1
+        name: Bulbasaur
+        color: "#008000"
+        thumbURL: https://pokemonsapi.herokuapp.com/sprites/1.png
+        imgURL: https://pokemonsapi.herokuapp.com/img/1.png
+        cryURL: https://pokemonsapi.herokuapp.com/cries/1.ogg
+        habitat:
+          habitatId: 4
+          name: Grassland
+        species:
+          speciesId: 207
+          name: Seed
+        poketypes:
+          - poketypeId: 8
+            name: Grass
+          - poketypeId: 12
+            name: Poison
+    detailspokemon:
+      type: object
+      required:
+        - pokemonId
+        - name
+      properties:
+        pokemonId:
+          type: number
+        name:
+          type: string
+        hp:
+          type: number
+        attack:
+          type: number
+        defense:
+          type: number
+        specialattack:
+          type: number
+        specialdefense:
+          type: number
+        speed:
+          type: number
+        height:
+          type: number
+        weight:
+          type: number
+        color:
+          type: string
+        thumbURL:
+          type: string
+        imgURL:
+          type: string
+        cryURL:
+          type: string
+        habitat:
+          type: object
+          $ref: '#/components/schemas/habitat'
+        species:
+          type: object
+          $ref: '#/components/schemas/species'
+        poketypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/poketype'
+      example:
+        pokemonId: 1
+        name: Bulbasaur
+        hp: 45
+        attack: 49
+        defense: 49
+        specialattack: 65
+        specialdefense: 65
+        speed: 45
+        height: 1
+        weight: 2
+        color: "#008000"
+        thumbURL: https://pokemonsapi.herokuapp.com/sprites/1.png
+        imgURL: https://pokemonsapi.herokuapp.com/img/1.png
+        cryURL: https://pokemonsapi.herokuapp.com/cries/1.ogg
+        habitat:
+          habitatId: 4
+          name: Grassland
+        species:
+          speciesId: 207
+          name: Seed
+        poketypes:
+          - poketypeId: 8
+            name: Grass
+          - poketypeId: 12
+            name: Poison
+    HashResponse:
+      type: object
+      required:
+        - hash
+      properties:
+        hash:
+          type: string
+      example:
+        hash: "$2b$08$LmR4pF7DQaYe2YiO93OoWOap7xfQRTkwn1inNHmiJdk6wYYcLrVHa"
+    isfavorite:
+      type: object
+      required:
+        - isFavorite
+      properties:
+        isFavorite:
+          type: boolean
+      example:
+        isFavorite: true
