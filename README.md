@@ -15,28 +15,25 @@
   <summary>Table des matières</summary>
   <ol>
     <li>
-      <a href="#about-the-project">About The Project</a>
+      <a href="#À-propos-du-projet">À propos du projet</a>
       <ul>
-        <li><a href="#built-with">Built With</a></li>
+        <li><a href="#Développé-avec">Développé avec</a></li>
       </ul>
     </li>
     <li>
-      <a href="#pages">pages</a>
-      <ul>
-          
-      </ul>
+      <a href="#Pages-de-l'application">Pages de l'application</a>
     </li>
   </ol>
 </details>
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## À propos du projet
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
-### Built With
+### Développé avec
 
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
@@ -51,7 +48,7 @@ This section should list any major frameworks/libraries used to bootstrap your p
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## pages
+## Pages de l'application
   <details>
     <summary>Pages de connexion et d'inscription</summary>
     <img src="https://github.com/DoBryanCS/GriffinPiece/assets/111463691/9a4c941b-b029-4209-a699-5724415ed65a" name="image-name">
