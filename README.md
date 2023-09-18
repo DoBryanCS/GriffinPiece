@@ -1,6 +1,6 @@
 <div align="center">
     <img src="https://github.com/DoBryanCS/GriffinPiece/assets/111463691/de0609d5-5c59-47d2-b40a-a2640d2ceadb" alt="Logo" width="80" height="80">
-  <h1 align="center">GriffinPiece</h1>
+    <h3 align="center">GriffinPiece</h3>
 </div>
 
 <!-- TABLE OF CONTENTS -->
@@ -23,13 +23,13 @@
 
 Le projet GriffinPiece visait à réinventer l'expérience de visualisation des émissions préférées des utilisateurs. En collaboration avec une équipe de 4 membres, l'objectif était de créer une application Android Full-Stack offrant une expérience de visionnage optimale. Cela comprenait l'optimisation de l'interface utilisateur pour une navigation fluide, la mise en place d'une gestion efficace des données et le déploiement d'une API performante. L'accent était mis sur la stabilité, la sécurité et la rapidité de l'application pour offrir aux utilisateurs une expérience de streaming exceptionnelle.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">Retour en haut</a>)</p>
 
 ## Développé avec
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+Voici les technologies et les outils utilisés pour le développement de ce projet
 
-* [![Next][Next.js]][Next-url]
+* [![Kotlin][Kotlin]][Kotlin-url]
 * [![React][React.js]][React-url]
 * [![Vue][Vue.js]][Vue-url]
 * [![Angular][Angular.io]][Angular-url]
@@ -38,7 +38,7 @@ This section should list any major frameworks/libraries used to bootstrap your p
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 * [![JQuery][JQuery.com]][JQuery-url]
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">Retour en haut</a>)</p>
 
 ## Pages de l'application
   <details>
@@ -76,6 +76,7 @@ This section should list any major frameworks/libraries used to bootstrap your p
     <img src="https://github.com/DoBryanCS/GriffinPiece/assets/111463691/1ec4bab1-708a-445d-bb98-82044314469d" name="image-name">
   </details>
 
+  <p align="right">(<a href="#readme-top">Retour en haut</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
@@ -92,11 +93,11 @@ This section should list any major frameworks/libraries used to bootstrap your p
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
 [product-screenshot]: images/screenshot.png
-[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
-[Next-url]: https://nextjs.org/
+[Kotlin]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
+[Kotlin-url]: https://kotlinlang.org/
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
-[Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
+[Vue.js]: https://img.shields.io/badge/Kotlin-0095D5?&style=for-the-badge&logo=kotlin&logoColor=white 
 [Vue-url]: https://vuejs.org/
 [Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
 [Angular-url]: https://angular.io/
