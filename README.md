@@ -1,7 +1,7 @@
 <div align="center">
     <img src="https://github.com/DoBryanCS/GriffinPiece/assets/111463691/de0609d5-5c59-47d2-b40a-a2640d2ceadb" alt="Logo" width="80" height="80">
   </a>
-  <h3 align="center">GriffinPiece</h3>
+  <h1 align="center">GriffinPiece</h1>
 </div>
 
 <!-- TABLE OF CONTENTS -->
