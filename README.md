@@ -33,6 +33,13 @@ Le projet GriffinPiece visait à réinventer l'expérience de visualisation des 
 Voici les technologies et les outils utilisés pour le développement de ce projet
 
 * [![Kotlin][Kotlin]][Kotlin-url]
+* [![Node][Node.js]][Node-url]
+* [![Express][Express.js]][Express-url]
+* [![SQLServer][SQLServer]][SQLServer-url]
+* [![Css][Css]][Css-url]
+* [![VSCode][VSCode]][VSCode-url]
+* [![Trello][Trello]][Trello-url]
+* [![Figma][Figma]][Figma-url]
 
 <p align="right">(<a href="#readme-top">Retour en haut</a>)</p>
 
@@ -87,6 +94,20 @@ Voici les technologies et les outils utilisés pour le développement de ce proj
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [Kotlin]: https://img.shields.io/badge/Kotlin-0095D5?&style=for-the-badge&logo=kotlin&logoColor=white 
 [Kotlin-url]: https://kotlinlang.org/
+[Node.js]: https://img.shields.io/badge/Node%20js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white
+[Node-url]: https://nodejs.org/
+[Express.js]: https://img.shields.io/badge/Express%20js-000000?style=for-the-badge&logo=express&logoColor=white
+[Express-url]: https://expressjs.com/fr/
+[SQLServer]: https://img.shields.io/badge/Microsoft_SQL_Server-CC2927?style=for-the-badge&logo=microsoft-sql-server&logoColor=white
+[SQLServer-url]: https://www.microsoft.com/fr-ca/sql-server/sql-server-downloads
+[Css]: https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white
+[Css-url]: https://www.w3schools.com/css/
+[Trello]: https://img.shields.io/badge/Trello-0052CC?style=for-the-badge&logo=trello&logoColor=white
+[Trello-url]: https://trello.com/fr 
+[Figma]: https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white
+[Figma-url]: https://www.figma.com/fr/
+[VSCode]: https://img.shields.io/badge/VSCode-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white
+[VSCode-url]: https://code.visualstudio.com/
 
 
 
